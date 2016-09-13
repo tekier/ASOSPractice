@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackendModel
 {
-    class Order
+    public class Order
     {
         
     }
