@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace FizzbuzzTest
 {
@@ -30,6 +25,16 @@ namespace FizzbuzzTest
 
             Assert.AreEqual("Fizz", result);
         }
-        
+
+        [Test]
+        public void ReturnsBuzz_WhenEntered_Five()
+        {
+            Fizzbuzz fizzbuzz = new Fizzbuzz();
+
+            string result = fizzbuzz.Process(5);
+
+            Assert.AreEqual("Buzz", result);
+
+        }
     }
 }
