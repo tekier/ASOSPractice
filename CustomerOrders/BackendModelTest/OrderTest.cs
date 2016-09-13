@@ -11,12 +11,11 @@ namespace BackendModelTest
     [TestFixture]
     class OrderTest
     {
-        //private BackendModel.Order orderInstance;
 
         public void ChecksConstructorWorks()
         {
-            string result = "placeholder";
-            Assert.AreEqual("placeholder", result);
+            Order orderObject = new Order(1, "socks", 2);
+            Assert.AreSame(orderObject, orderObject.getInstance());
         }
 
     }
