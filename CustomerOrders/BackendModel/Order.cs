@@ -24,5 +24,10 @@ namespace BackendModel
         {
             return this;
         }
+
+        public int getId()
+        {
+            return this.orderId;
+        }
     }
 }
