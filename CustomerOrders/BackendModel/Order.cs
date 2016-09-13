@@ -8,31 +8,36 @@ namespace BackendModel
 {
     public class Order
     {
-        private int orderId;
-        private string item;
-        private int quantity;
+        private readonly int _orderId;
+        private readonly string _item;
+        private readonly int _quantity;
 
         public Order(int orderId, string item, int quantity)
         {
-            this.orderId = orderId;
-            this.item = item;
-            this.quantity = quantity;
+            this._orderId = orderId;
+            this._item = item;
+            this._quantity = quantity;
             
         }
 
-        public object getInstance()
+        public object GetInstance()
         {
             return this;
         }
 
-        public int getId()
+        public int GetId()
         {
-            return this.orderId;
+            return this._orderId;
         }
 
-        public string getItemName()
+        public string GetItemName()
         {
-            return this.item;
+            return this._item;
+        }
+
+        public int GetQuantity()
+        {
+            return this._quantity;
         }
     }
 }
