@@ -27,5 +27,13 @@ namespace BackendModelTest
 
         }
 
+        [Test]
+        public void ChecksItemGetterWorks()
+        {
+            string item = testOrderObject.getItemName();
+            Assert.AreEqual("socks", testOrderObject.getItemName());
+
+        }
+
     }
 }

@@ -29,5 +29,10 @@ namespace BackendModel
         {
             return this.orderId;
         }
+
+        public string getItemName()
+        {
+            return this.item;
+        }
     }
 }
