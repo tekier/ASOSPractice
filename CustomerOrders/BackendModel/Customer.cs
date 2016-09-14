@@ -11,14 +11,12 @@ namespace BackendModel
     {
         private string _name;
         private DateTime _dateOfBirth;
-        private char _gender;
         private ArrayList _orderList = new ArrayList();
 
-        public Customer(string name, DateTime dateOfBirth, char gender)
+        public Customer(string name, DateTime dateOfBirth)
         {
             this._name = name;
             this._dateOfBirth = dateOfBirth;
-            this._gender = gender;
         }
 
         public void SetName(string newName)

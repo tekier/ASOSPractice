@@ -12,7 +12,7 @@ namespace BackendModelTest
     [TestFixture]
     class CustomerTest
     {
-        Customer _customerTestObject = new Customer("Foo", new DateTime(1995, 7, 21), 'm');
+        Customer _customerTestObject = new Customer("Foo", new DateTime(1995, 7, 21));
 
         [Test]
         public void CheckNameSetterAndGetterWorks()
@@ -33,7 +33,6 @@ namespace BackendModelTest
         [Test]
         public void CheckDOBCalculatorWorks()
         {
-            DateTime dateOfBirth = _customerTestObject.GetDOB();
             int age = _customerTestObject.GetCustomerAge();
             Assert.AreEqual(21, age);
 
@@ -57,7 +56,7 @@ namespace BackendModelTest
         public void TestSizeOfList()
         {
             int length = _customerTestObject.GetNumberOfOrders();
-            Assert.AreEqual(0,length);
+            Assert.AreEqual(2, length);
         }
 
     }
