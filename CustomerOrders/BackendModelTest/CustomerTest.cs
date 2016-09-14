@@ -12,7 +12,7 @@ namespace BackendModelTest
     [TestFixture]
     class CustomerTest
     {
-        readonly Customer _customerTestObject = new Customer("Foo", new DateTime(1995, 7, 21), 'm');
+        Customer _customerTestObject = new Customer("Foo", new DateTime(1995, 7, 21), 'm');
 
         [Test]
         public void CheckNameSetterAndGetterWorks()
@@ -25,7 +25,7 @@ namespace BackendModelTest
         [Test]
         public void CheckDOBGetterWorks()
         {
-            DateTime dateOfBirth = _customerTestObject.getDOB();
+            DateTime dateOfBirth = _customerTestObject.GetDOB();
             Assert.AreEqual((new DateTime(1995, 7, 21)).ToString(CultureInfo.CurrentCulture), dateOfBirth.ToString(CultureInfo.CurrentCulture));
 
         }
@@ -33,10 +33,31 @@ namespace BackendModelTest
         [Test]
         public void CheckDOBCalculatorWorks()
         {
-            DateTime dateOfBirth = _customerTestObject.getDOB();
-            int age = _customerTestObject.getCustomerAge();
+            DateTime dateOfBirth = _customerTestObject.GetDOB();
+            int age = _customerTestObject.GetCustomerAge();
             Assert.AreEqual(21, age);
 
+        }
+    
+        [Test]
+        public void TestOrderFirstAndSecondIndexInList()
+        {
+            Order testOrder = new Order(1, "shoes", 2);
+            _customerTestObject.AddOrder(testOrder);
+            Order retrievedTestOrder = _customerTestObject.GetOrder(0);
+            Assert.AreSame(testOrder, retrievedTestOrder);
+            Order newTestOrder = new Order(2, "vase", 1);
+            _customerTestObject.AddOrder(newTestOrder);
+            Order newRetrievedTestOrder = _customerTestObject.GetOrder(1);
+            Assert.AreSame(newRetrievedTestOrder, _customerTestObject.GetOrder(1));
+
+        }
+
+        [Test]
+        public void TestSizeOfList()
+        {
+            int length = _customerTestObject.GetNumberOfOrders();
+            Assert.AreEqual(0,length);
         }
 
     }

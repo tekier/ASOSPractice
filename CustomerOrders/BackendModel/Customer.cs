@@ -12,14 +12,13 @@ namespace BackendModel
         private string _name;
         private DateTime _dateOfBirth;
         private char _gender;
-        private ArrayList _orderList;
+        private ArrayList _orderList = new ArrayList();
 
         public Customer(string name, DateTime dateOfBirth, char gender)
         {
             this._name = name;
             this._dateOfBirth = dateOfBirth;
             this._gender = gender;
-            _orderList = new ArrayList();
         }
 
         public void SetName(string newName)
@@ -32,14 +31,29 @@ namespace BackendModel
             return this._name;
         }
 
-        public DateTime getDOB()
+        public DateTime GetDOB()
         {
             return _dateOfBirth;
         }
 
-        public int getCustomerAge()
+        public int GetCustomerAge()
         {
-            return DateTime.Today.Year - getDOB().Year;
+            return DateTime.Today.Year - GetDOB().Year;
+        }
+
+        public void AddOrder(Order newOrder)
+        {
+            _orderList.Add(newOrder);
+        }
+
+        public Order GetOrder(int orderIndex)
+        {
+            return (Order)_orderList[orderIndex];
+        }
+
+        public int GetNumberOfOrders()
+        {
+            return _orderList.Count;
         }
     }
 }
