@@ -19,14 +19,24 @@ namespace BackendModel
         }
 
 
-        public void SetHouse(string HouseName)
+        public void SetHouse(string houseName)
         {
-            this._house = HouseName;
+            this._house = houseName;
         }
 
         public string GetHouse()
         {
             return this._house;
+        }
+
+        public void SetPostcode(string postcode)
+        {
+            this._postcode = postcode;
+        }
+
+        public string GetPostcode()
+        {
+            return this._postcode;
         }
     }
 }

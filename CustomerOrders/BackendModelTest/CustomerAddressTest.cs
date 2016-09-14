@@ -11,14 +11,23 @@ namespace BackendModelTest
     [TestFixture]
     class CustomerAddressTest
     {
-        CustomerAddress _TestCustomerAddressObject = new CustomerAddress("Greater London House", "SA27AP");
+        private readonly CustomerAddress _testCustomerAddressObject = new CustomerAddress("Greater London House", "SA27AP");
 
         [Test]
         public void CheckHouseSetterAndGetterWorks()
         {
             const string testString = "Lesser London House";
-            _TestCustomerAddressObject.SetHouse(testString);
-            Assert.AreEqual(testString, _TestCustomerAddressObject.GetHouse());
+            _testCustomerAddressObject.SetHouse(testString);
+            Assert.AreEqual(testString, _testCustomerAddressObject.GetHouse());
+        }
+
+        [Test]
+        public void CheckPostcodeSetterandGetterWorks()
+        {
+            const string testString = "XXXXXX";
+            _testCustomerAddressObject.SetPostcode(testString);
+            Assert.AreEqual(testString, _testCustomerAddressObject.GetPostcode());
+
         }
 
 
