@@ -31,5 +31,15 @@ namespace BackendModel
         {
             return this._name;
         }
+
+        public DateTime getDOB()
+        {
+            return _dateOfBirth;
+        }
+
+        public int getCustomerAge()
+        {
+            return DateTime.Today.Year - getDOB().Year;
+        }
     }
 }
