@@ -45,6 +45,12 @@ namespace BackendModelTest
             _customerTestObject.AddOrder(testOrder);
             Order retrievedTestOrder = _customerTestObject.GetOrder(0);
             Assert.AreSame(testOrder, retrievedTestOrder);
+
+        }
+
+        [Test]
+        public void TestOrderSecondIndexList()
+        {
             Order newTestOrder = new Order(2, "vase", 1);
             _customerTestObject.AddOrder(newTestOrder);
             Order newRetrievedTestOrder = _customerTestObject.GetOrder(1);

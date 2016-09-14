@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerAddress.cs" />
-    <Compile Include="EntryPoint.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
