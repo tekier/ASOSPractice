@@ -11,7 +11,7 @@ namespace BackendModelTest
     [TestFixture]
     class CustomerAddressTest
     {
-        private readonly CustomerAddress _testCustomerAddressObject = new CustomerAddress("Greater London House", "SA27AP");
+        readonly CustomerAddress _testCustomerAddressObject = new CustomerAddress("Greater London House", "SA27AP");
 
         [Test]
         public void CheckHouseSetterAndGetterWorks()
