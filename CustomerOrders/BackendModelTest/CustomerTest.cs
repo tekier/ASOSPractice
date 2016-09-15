@@ -42,7 +42,7 @@ namespace BackendModelTest
         }
 
         [Test]
-        public void CheckDOBGetterWorks()
+        public void CheckDobGetterWorks()
         {
             DateTime dateOfBirth = _customerTestObject.DateOfBirth;
             Assert.AreEqual((new DateTime(1995, 7, 21)).ToString(CultureInfo.CurrentCulture), dateOfBirth.ToString(CultureInfo.CurrentCulture));

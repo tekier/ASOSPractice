@@ -8,22 +8,31 @@ namespace BackendModel
 {
     public class CustomerList
     {
-        private List<CustomerOperations> _listOfCustomers = new List<CustomerOperations>();
+        public virtual List<CustomerOperations> ListOfCustomers { get; set; }
 
         public void AddCustomer(CustomerOperations newCustomerOperations)
         {
-            _listOfCustomers.Add(newCustomerOperations);
+            ListOfCustomers.Add(newCustomerOperations);
         }
 
         public CustomerOperations GetCustomer(int returnId)
         {
-            return (CustomerOperations) _listOfCustomers[returnId];
+            return ListOfCustomers.Find(customer => customer.GetCustomerId() == returnId);
         }
 
         public int NumberOfCustomers()
         {
-            return _listOfCustomers.Count;
+            return ListOfCustomers.Count;
         }
-        
+
+        public void AddNewOrder(Order order, int custId)
+        {
+            ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).AddOrder(order);
+        }
+
+        public object GetOrder(int custId, int orderId)
+        {
+            return ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).GetOrder(orderId);
+        }
     }
 }

@@ -46,12 +46,12 @@ namespace BackendModelTest
         {
             Order testOrder = new Order
             {
-                _item = "shoes",
-                _orderId = 1,
-                _quantity = 2
+                Item = "shoes",
+                OrderId = 1,
+                Quantity = 2
             };
             _customerOperationsTestObject.AddOrder(testOrder);
-            Order retrievedTestOrder = _customerOperationsTestObject.GetOrder(0);
+            Order retrievedTestOrder = _customerOperationsTestObject.GetOrder(1);
             Assert.AreSame(testOrder, retrievedTestOrder);
         }
 
@@ -60,12 +60,12 @@ namespace BackendModelTest
         {
             Order testOrder = new Order
             {
-                _item = "lamp",
-                _orderId = 23,
-                _quantity = 1
+                Item = "lamp",
+                OrderId = 23,
+                Quantity = 1
             };
             _customerOperationsTestObject.AddOrder(testOrder);
-            Order retrievedTestOrder = _customerOperationsTestObject.GetOrder(1);
+            Order retrievedTestOrder = _customerOperationsTestObject.GetOrder(23);
             Assert.AreSame(testOrder,retrievedTestOrder);
         }
 

@@ -18,33 +18,33 @@ namespace BackendModelTest
         {
             _testOrderObject = new Order()
             {
-                _orderId = 1,
-                _item = "socks",
-                _quantity = 4
+                OrderId = 1,
+                Item = "socks",
+                Quantity = 4
             };
         }
 
         [Test]
         public void ChecksIdGetterWorkds()
         {
-            int id = _testOrderObject._orderId;
-            Assert.AreEqual(1, _testOrderObject._orderId);
+            int id = _testOrderObject.OrderId;
+            Assert.AreEqual(1, _testOrderObject.OrderId);
 
         }
 
         [Test]
         public void ChecksItemGetterWorks()
         {
-            string item = _testOrderObject._item;
-            Assert.AreEqual("socks", _testOrderObject._item);
+            string item = _testOrderObject.Item;
+            Assert.AreEqual("socks", _testOrderObject.Item);
 
         }
 
         [Test]
         public void ChecksQuantityGetterWorks()
         {
-            int quantity = _testOrderObject._quantity;
-            Assert.AreEqual(4, _testOrderObject._quantity);
+            int quantity = _testOrderObject.Quantity;
+            Assert.AreEqual(4, _testOrderObject.Quantity);
         }
 
     }

@@ -28,10 +28,18 @@ namespace BackendModel
 
         public Order GetOrder(int index)
         {
-            return (Order)CustomerObject.Orders[index];
+            return CustomerObject.Orders.Find(order => order.OrderId == index);
         }
 
-        
+        public int GetCustomerId()
+        {
+            return CustomerObject.Id;
+        }
+
+        public List<Order> GetOrdersList()
+        {
+            return CustomerObject.Orders;
+        }
 
         //public void toJSON(Customer customerObject, string path)
         //{

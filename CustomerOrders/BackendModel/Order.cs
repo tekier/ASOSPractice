@@ -8,9 +8,9 @@ namespace BackendModel
 {
     public class Order
     {
-        public virtual int _orderId { get; set; }
-        public virtual string _item { get; set; }
-        public virtual int _quantity { get; set; }
+        public virtual int OrderId { get; set; }
+        public virtual string Item { get; set; }
+        public virtual int Quantity { get; set; }
 
     }
 }
