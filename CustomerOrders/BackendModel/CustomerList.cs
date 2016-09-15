@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BackendModel
 {
@@ -34,5 +35,12 @@ namespace BackendModel
         {
             return ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).GetOrder(orderId);
         }
-    }
+
+        public void toJSON(List<CustomerOperations> inputObj, string path)
+        {
+            string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
+            System.IO.File.WriteAllText(path + "ApplicationData.json", json);
+            
+        }
+}
 }
