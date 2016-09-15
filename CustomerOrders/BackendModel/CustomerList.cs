@@ -36,11 +36,17 @@ namespace BackendModel
             return ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).GetOrder(orderId);
         }
 
-        public void toJSON(List<CustomerOperations> inputObj, string path)
+        public void ToJSON(List<CustomerOperations> inputObj, string path)
         {
             string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
             System.IO.File.WriteAllText(path + "ApplicationData.json", json);
             
         }
-}
+
+        public List<CustomerOperations> LoadJson(string path)
+        {
+            string json = System.IO.File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<List<CustomerOperations>>(json);
+        }
+    }
 }

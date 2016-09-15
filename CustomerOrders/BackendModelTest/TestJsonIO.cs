@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BackendModel;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
@@ -13,8 +14,8 @@ namespace BackendModelTest
     class TestJsonIO
     {
         private string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/";
-        private CustomerList _testCustomerList;
-        private CustomerOperations firstCustomerOperations, secondCustomerOperations, derivedCustomerOperations;
+        private CustomerList _testCustomerList, _derivedTestCustomerList;
+        private CustomerOperations firstCustomerOperations, secondCustomerOperations;
         private Order firstTestOrder, secondTestOrder, thirdTestOrder, fourthTestOrder;
 
         [TestFixtureSetUp]
@@ -84,7 +85,7 @@ namespace BackendModelTest
                 OrderId = 88,
                 Quantity = 45
             };
-            
+
         }
 
         [Test]
@@ -94,17 +95,24 @@ namespace BackendModelTest
             _testCustomerList.AddCustomer(secondCustomerOperations);
             _testCustomerList.AddNewOrder(firstTestOrder, 18);
             _testCustomerList.AddNewOrder(secondTestOrder, 18);
-            _testCustomerList.AddNewOrder(thirdTestOrder,18);
+            _testCustomerList.AddNewOrder(thirdTestOrder, 18);
             _testCustomerList.AddNewOrder(fourthTestOrder, 7);
 
-            _testCustomerList.toJSON(_testCustomerList.ListOfCustomers, path);
-            Assert.IsTrue(System.IO.File.Exists(path+"ApplicationData.json"));
+            _testCustomerList.ToJSON(_testCustomerList.ListOfCustomers, path);
+            Assert.IsTrue(System.IO.File.Exists(path + "ApplicationData.json"));
+            
         }
 
         [Test]
         public void TestJsonLoader()
         {
-            Assert.True(true);
+            _derivedTestCustomerList = new CustomerList()
+            {
+                ListOfCustomers = _testCustomerList.LoadJson(path + "ApplicationData.json")
+            };
+            int numberOfCustomers = _derivedTestCustomerList.NumberOfCustomers();
+            Assert.AreEqual(2, numberOfCustomers);
+
         }            
 
     }
