@@ -87,30 +87,33 @@ namespace BackendModelTest
                 OrderId = 70,
                 Quantity = 3
             };
+            
             Order newTestOrder = new Order
             {
                 Item = "dice",
                 OrderId = 34,
                 Quantity = 100
             };
-            _customerListTestObject.AddNewOrder(testOrder, 65);
             _customerListTestObject.AddNewOrder(newTestOrder, 1);
+            _customerListTestObject.AddNewOrder(testOrder, 65);
             Assert.IsNotEmpty(_customerListTestObject.GetCustomer(65).GetOrdersList());
-            Assert.IsNotEmpty(_customerListTestObject.GetCustomer(1).GetOrdersList());
             Assert.AreEqual("dress", _customerListTestObject.GetCustomer(65).GetOrder(70).Item);
+            Assert.IsNotEmpty(_customerListTestObject.GetCustomer(1).GetOrdersList());
+            Assert.AreEqual(2, _customerListTestObject.GetCustomer(1).GetNumberOfOrders());
         }
 
-        ////[Test]
-        ////public void TestAddingAndGettingOrder()
-        ////{
-        ////    Order testOrder = new Order
-        ////    {
-        ////        Item = "watch",
-        ////        OrderId = 23,
-        ////        Quantity = 1
-        ////    };
-        ////    _customerListTestObject.AddNewOrder(testOrder, 1);
-        ////    Assert.AreEqual(testOrder.Item, _customerListTestObject.GetCustomer(1).GetOrder(23));
-        ////}
+        [Test]
+        public void TestOrderIsTheSame()
+        {
+            Order testOrder = new Order
+            {
+                Item = "watch",
+                OrderId = 21,
+                Quantity = 7
+            };
+
+            _customerListTestObject.AddNewOrder(testOrder, 1);
+            Assert.AreSame(testOrder, _customerListTestObject.GetCustomer(1).GetOrder(21));
+        }
     }
 }
