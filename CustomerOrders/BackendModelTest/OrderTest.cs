@@ -11,36 +11,40 @@ namespace BackendModelTest
     [TestFixture]
     class OrderTest
     {
-        readonly Order _testOrderObject = new Order(1, "socks", 4);
-        
-        [Test]
-        public void ChecksConstructorWorks()
+        //Constructor
+        private Order _testOrderObject;
+        [TestFixtureSetUp]
+        public void SetUp()
         {
-            Order orderObject = new Order(2, "shirt", 2);
-            Assert.AreSame(orderObject, orderObject.GetInstance());
+            _testOrderObject = new Order()
+            {
+                _orderId = 1,
+                _item = "socks",
+                _quantity = 4
+            };
         }
 
         [Test]
         public void ChecksIdGetterWorkds()
         {
-            int id = _testOrderObject.GetId();
-            Assert.AreEqual(1, _testOrderObject.GetId());
+            int id = _testOrderObject._orderId;
+            Assert.AreEqual(1, _testOrderObject._orderId);
 
         }
 
         [Test]
         public void ChecksItemGetterWorks()
         {
-            string item = _testOrderObject.GetItemName();
-            Assert.AreEqual("socks", _testOrderObject.GetItemName());
+            string item = _testOrderObject._item;
+            Assert.AreEqual("socks", _testOrderObject._item);
 
         }
 
         [Test]
         public void ChecksQuantityGetterWorks()
         {
-            int quantity = _testOrderObject.GetQuantity();
-            Assert.AreEqual(4, _testOrderObject.GetQuantity());
+            int quantity = _testOrderObject._quantity;
+            Assert.AreEqual(4, _testOrderObject._quantity);
         }
 
     }

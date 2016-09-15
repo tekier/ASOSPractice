@@ -12,58 +12,40 @@ namespace BackendModelTest
     [TestFixture]
     class CustomerTest
     {
-        Customer _customerTestObject = new Customer("Foo", new DateTime(1995, 7, 21));
+        private Customer _customerTestObject;
+        
+        [TestFixtureSetUp]
+        public void SetUp()
+        {
+            _customerTestObject = new Customer
+            {
+                Name = "NONAME",
+                CustomerAddress = new CustomerAddress
+                {
+                    House = "64",
+                    Postcode = "TW20 0PW"
+                },
+                DateOfBirth = new DateTime(1995,7,21),
+                Orders = new List<Order>()
+
+            };
+        }
+
 
         [Test]
         public void CheckNameSetterAndGetterWorks()
         {
             const string testString = "Tawqir";
-            _customerTestObject.SetName(testString);
-            Assert.AreEqual(testString, _customerTestObject.GetName());
+            _customerTestObject.Name = testString;
+            Assert.AreEqual(testString, _customerTestObject.Name);
         }
 
         [Test]
         public void CheckDOBGetterWorks()
         {
-            DateTime dateOfBirth = _customerTestObject.GetDOB();
+            DateTime dateOfBirth = _customerTestObject.DateOfBirth;
             Assert.AreEqual((new DateTime(1995, 7, 21)).ToString(CultureInfo.CurrentCulture), dateOfBirth.ToString(CultureInfo.CurrentCulture));
 
         }
-
-        [Test]
-        public void CheckDOBCalculatorWorks()
-        {
-            int age = _customerTestObject.GetCustomerAge();
-            Assert.AreEqual(21, age);
-
-        }
-    
-        [Test]
-        public void TestOrderFirstAndSecondIndexInList()
-        {
-            Order testOrder = new Order(1, "shoes", 2);
-            _customerTestObject.AddOrder(testOrder);
-            Order retrievedTestOrder = _customerTestObject.GetOrder(0);
-            Assert.AreSame(testOrder, retrievedTestOrder);
-
-        }
-
-        [Test]
-        public void TestOrderSecondIndexList()
-        {
-            Order newTestOrder = new Order(2, "vase", 1);
-            _customerTestObject.AddOrder(newTestOrder);
-            Order newRetrievedTestOrder = _customerTestObject.GetOrder(1);
-            Assert.AreSame(newRetrievedTestOrder, _customerTestObject.GetOrder(1));
-
-        }
-
-        [Test]
-        public void TestSizeOfList()
-        {
-            int length = _customerTestObject.GetNumberOfOrders();
-            Assert.AreEqual(2, length);
-        }
-
     }
 }

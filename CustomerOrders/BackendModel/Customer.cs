@@ -9,49 +9,13 @@ namespace BackendModel
 {
     public class Customer
     {
-        private string _name;
-        private DateTime _dateOfBirth;
-        private ArrayList _orderList = new ArrayList();
+        public virtual string Name { get; set; }
 
-        public Customer(string name, DateTime dateOfBirth)
-        {
-            this._name = name;
-            this._dateOfBirth = dateOfBirth;
-        }
+        public virtual DateTime DateOfBirth { get; set; }
 
-        public void SetName(string newName)
-        {
-            this._name = newName;
-        }
+        public virtual List<Order> Orders { get; set; }
 
-        public string GetName()
-        {
-            return this._name;
-        }
-
-        public DateTime GetDOB()
-        {
-            return _dateOfBirth;
-        }
-
-        public int GetCustomerAge()
-        {
-            return DateTime.Today.Year - GetDOB().Year;
-        }
-
-        public void AddOrder(Order newOrder)
-        {
-            _orderList.Add(newOrder);
-        }
-
-        public Order GetOrder(int orderIndex)
-        {
-            return (Order)_orderList[orderIndex];
-        }
-
-        public int GetNumberOfOrders()
-        {
-            return _orderList.Count;
-        }
+        public virtual CustomerAddress CustomerAddress { get; set; }
+       
     }
 }
