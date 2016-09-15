@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BackendModel;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
 namespace BackendModelTest
 {
+    [TestFixture]
     class CustomerOperationsTest
     {
         private CustomerOperations _customerOperationsTestObject;
@@ -73,5 +75,22 @@ namespace BackendModelTest
             int length = _customerOperationsTestObject.GetNumberOfOrders();
             Assert.AreEqual(2, length);
         }
+
+        //[Test]
+        //public void TestJsonSerializerWorks()
+        //{
+        //    const string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/BackendModelTest/ApplicationInfo.json";
+        //    _customerOperationsTestObject.toJSON(_customerOperationsTestObject.CustomerObject, path);
+        //    string testJson = JsonConvert.SerializeObject(_customerOperationsTestObject.CustomerObject, Formatting.Indented);
+        //    string info = System.IO.File.ReadAllText(path);
+        //    Assert.AreEqual(testJson, info);
+        //}
+
+        //[Test]
+        //public void TestJsonDeserializerWorkds()
+        //{
+        //    const string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/BackendModelTest/ApplicationInfo.json";
+        //    _customerOperationsTestObject.parseJSON(_customerOperationsTestObject);
+        //}
     }
 }

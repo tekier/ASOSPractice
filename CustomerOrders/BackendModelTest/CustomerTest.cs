@@ -19,6 +19,7 @@ namespace BackendModelTest
         {
             _customerTestObject = new Customer
             {
+                Id = 1,
                 Name = "NONAME",
                 CustomerAddress = new CustomerAddress
                 {

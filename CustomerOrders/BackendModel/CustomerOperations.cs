@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BackendModel
 {
@@ -29,5 +30,14 @@ namespace BackendModel
         {
             return (Order)CustomerObject.Orders[index];
         }
+
+        
+
+        //public void toJSON(Customer customerObject, string path)
+        //{
+        //    string json = JsonConvert.SerializeObject(customerObject, Formatting.Indented);
+        //    System.IO.File.WriteAllText(path, json);
+        //}
+
     }
 }
