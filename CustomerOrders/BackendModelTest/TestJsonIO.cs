@@ -15,7 +15,7 @@ namespace BackendModelTest
     {
         private string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/";
         private CustomerList _testCustomerList, _derivedTestCustomerList;
-        private CustomerOperations firstCustomerOperations, secondCustomerOperations;
+        private CustomerDetails _firstCustomerDetails, _secondCustomerDetails;
         private Order firstTestOrder, secondTestOrder, thirdTestOrder, fourthTestOrder;
 
         [TestFixtureSetUp]
@@ -23,10 +23,10 @@ namespace BackendModelTest
         {
             _testCustomerList = new CustomerList
             {
-                ListOfCustomers = new List<CustomerOperations>()
+                ListOfCustomers = new List<CustomerDetails>()
             };
 
-            firstCustomerOperations = new CustomerOperations
+            _firstCustomerDetails = new CustomerDetails
             {
                 CustomerObject = new Customer
                 {
@@ -42,7 +42,7 @@ namespace BackendModelTest
                 }
             };
 
-            secondCustomerOperations = new CustomerOperations
+            _secondCustomerDetails = new CustomerDetails
             {
                 CustomerObject = new Customer
                 {
@@ -91,8 +91,8 @@ namespace BackendModelTest
         [Test]
         public void TestJsonWriter()
         {
-            _testCustomerList.AddCustomer(firstCustomerOperations);
-            _testCustomerList.AddCustomer(secondCustomerOperations);
+            _testCustomerList.AddCustomer(_firstCustomerDetails);
+            _testCustomerList.AddCustomer(_secondCustomerDetails);
             _testCustomerList.AddNewOrder(firstTestOrder, 18);
             _testCustomerList.AddNewOrder(secondTestOrder, 18);
             _testCustomerList.AddNewOrder(thirdTestOrder, 18);

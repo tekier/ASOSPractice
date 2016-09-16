@@ -19,14 +19,14 @@ namespace BackendModelTest
         {
             _customerListTestObject = new CustomerList()
             {
-                ListOfCustomers = new List<CustomerOperations>()
+                ListOfCustomers = new List<CustomerDetails>()
             };
         }
 
         [Test]
         public void TestingAddCustomerWorks()
         {
-            CustomerOperations testCustomerOperations = new CustomerOperations
+            CustomerDetails testCustomerDetails = new CustomerDetails
             {
                 CustomerObject = new Customer
                 {
@@ -42,15 +42,15 @@ namespace BackendModelTest
                 }
             };
 
-            _customerListTestObject.AddCustomer(testCustomerOperations);
-            CustomerOperations retrievedCustomerOperations = _customerListTestObject.GetCustomer(65);
-            Assert.AreSame(testCustomerOperations, retrievedCustomerOperations);
+            _customerListTestObject.AddCustomer(testCustomerDetails);
+            CustomerDetails retrievedCustomerDetails = _customerListTestObject.GetCustomer(65);
+            Assert.AreSame(testCustomerDetails, retrievedCustomerDetails);
         }
 
         [Test]
         public void TestingAddAnotherCustomerWorks()
         {
-            CustomerOperations testCustomerOperations = new CustomerOperations
+            CustomerDetails testCustomerDetails = new CustomerDetails
             {
                 CustomerObject = new Customer
                 {
@@ -66,9 +66,9 @@ namespace BackendModelTest
                 }
             };
 
-            _customerListTestObject.AddCustomer(testCustomerOperations);
-            CustomerOperations retrievedCustomerOperations = _customerListTestObject.GetCustomer(1);
-            Assert.AreSame(testCustomerOperations, retrievedCustomerOperations);
+            _customerListTestObject.AddCustomer(testCustomerDetails);
+            CustomerDetails retrievedCustomerDetails = _customerListTestObject.GetCustomer(1);
+            Assert.AreSame(testCustomerDetails, retrievedCustomerDetails);
         }
 
         [Test]

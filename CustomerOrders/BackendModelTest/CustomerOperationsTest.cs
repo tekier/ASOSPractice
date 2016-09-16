@@ -13,12 +13,12 @@ namespace BackendModelTest
     [TestFixture]
     class CustomerOperationsTest
     {
-        private CustomerOperations _customerOperationsTestObject;
+        private CustomerDetails _customerDetailsTestObject;
 
         [TestFixtureSetUp]
         public void SetUp()
         {
-            _customerOperationsTestObject = new CustomerOperations
+            _customerDetailsTestObject = new CustomerDetails
             {
                 CustomerObject = new Customer
                 {
@@ -37,7 +37,7 @@ namespace BackendModelTest
         [Test]
         public void CheckDobCalculatorWorks()
         {
-            int age = _customerOperationsTestObject.GetCustomerAge();
+            int age = _customerDetailsTestObject.GetCustomerAge();
             Assert.AreEqual(21, age);
         }
 
@@ -50,8 +50,8 @@ namespace BackendModelTest
                 OrderId = 1,
                 Quantity = 2
             };
-            _customerOperationsTestObject.AddOrder(testOrder);
-            Order retrievedTestOrder = _customerOperationsTestObject.GetOrder(1);
+            _customerDetailsTestObject.AddOrder(testOrder);
+            Order retrievedTestOrder = _customerDetailsTestObject.GetOrder(1);
             Assert.AreSame(testOrder, retrievedTestOrder);
         }
 
@@ -64,33 +64,17 @@ namespace BackendModelTest
                 OrderId = 23,
                 Quantity = 1
             };
-            _customerOperationsTestObject.AddOrder(testOrder);
-            Order retrievedTestOrder = _customerOperationsTestObject.GetOrder(23);
+            _customerDetailsTestObject.AddOrder(testOrder);
+            Order retrievedTestOrder = _customerDetailsTestObject.GetOrder(23);
             Assert.AreSame(testOrder,retrievedTestOrder);
         }
 
         [Test]
         public void TestSizeOfList()
         {
-            int length = _customerOperationsTestObject.GetNumberOfOrders();
+            int length = _customerDetailsTestObject.GetNumberOfOrders();
             Assert.AreEqual(2, length);
         }
 
-        //[Test]
-        //public void TestJsonSerializerWorks()
-        //{
-        //    const string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/BackendModelTest/ApplicationInfo.json";
-        //    _customerOperationsTestObject.toJSON(_customerOperationsTestObject.CustomerObject, path);
-        //    string testJson = JsonConvert.SerializeObject(_customerOperationsTestObject.CustomerObject, Formatting.Indented);
-        //    string info = System.IO.File.ReadAllText(path);
-        //    Assert.AreEqual(testJson, info);
-        //}
-
-        //[Test]
-        //public void TestJsonDeserializerWorkds()
-        //{
-        //    const string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/BackendModelTest/ApplicationInfo.json";
-        //    _customerOperationsTestObject.parseJSON(_customerOperationsTestObject);
-        //}
     }
 }

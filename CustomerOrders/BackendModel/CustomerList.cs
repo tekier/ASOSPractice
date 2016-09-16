@@ -9,14 +9,14 @@ namespace BackendModel
 {
     public class CustomerList
     {
-        public virtual List<CustomerOperations> ListOfCustomers { get; set; }
+        public virtual List<CustomerDetails> ListOfCustomers { get; set; }
 
-        public void AddCustomer(CustomerOperations newCustomerOperations)
+        public void AddCustomer(CustomerDetails newCustomerDetails)
         {
-            ListOfCustomers.Add(newCustomerOperations);
+            ListOfCustomers.Add(newCustomerDetails);
         }
 
-        public CustomerOperations GetCustomer(int returnId)
+        public CustomerDetails GetCustomer(int returnId)
         {
             return ListOfCustomers.Find(customer => customer.GetCustomerId() == returnId);
         }
@@ -36,17 +36,17 @@ namespace BackendModel
             return ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).GetOrder(orderId);
         }
 
-        public void ToJSON(List<CustomerOperations> inputObj, string path)
+        public void ToJSON(List<CustomerDetails> inputObj, string path)
         {
             string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
             System.IO.File.WriteAllText(path + "ApplicationData.json", json);
             
         }
 
-        public List<CustomerOperations> LoadJson(string path)
+        public List<CustomerDetails> LoadJson(string path)
         {
             string json = System.IO.File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<List<CustomerOperations>>(json);
+            return JsonConvert.DeserializeObject<List<CustomerDetails>>(json);
         }
     }
 }
