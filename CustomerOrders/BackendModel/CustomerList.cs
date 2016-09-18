@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace BackendModel
         public void ToJSON(List<CustomerDetails> inputObj, string path)
         {
             string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
-            System.IO.File.WriteAllText(path + "ApplicationData.json", json);
+            System.IO.File.WriteAllText(path, json);
             
         }
 

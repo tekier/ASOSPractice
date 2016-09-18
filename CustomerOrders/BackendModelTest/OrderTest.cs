@@ -11,8 +11,9 @@ namespace BackendModelTest
     [TestFixture]
     class OrderTest
     {
-        //Constructor
+      
         private Order _testOrderObject;
+
         [TestFixtureSetUp]
         public void SetUp()
         {

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using BackendModel;
@@ -13,7 +15,9 @@ namespace BackendModelTest
     [TestFixture]
     class TestJsonIO
     {
-        private string path = "C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/";
+        private string directory = System.IO.Directory.GetCurrentDirectory();
+        private string filename = "ApplicationData.json";
+        //"C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/";
         private CustomerList _testCustomerList, _derivedTestCustomerList;
         private CustomerDetails _firstCustomerDetails, _secondCustomerDetails;
         private Order firstTestOrder, secondTestOrder, thirdTestOrder, fourthTestOrder;
@@ -60,7 +64,7 @@ namespace BackendModelTest
 
             firstTestOrder = new Order
             {
-                Item = "scarf",
+                Item = "suit",
                 OrderId = 99,
                 Quantity = 1
             };
@@ -91,6 +95,7 @@ namespace BackendModelTest
         [Test]
         public void TestJsonWriter()
         {
+            string path = Path.Combine(directory, filename);
             _testCustomerList.AddCustomer(_firstCustomerDetails);
             _testCustomerList.AddCustomer(_secondCustomerDetails);
             _testCustomerList.AddNewOrder(firstTestOrder, 18);
@@ -99,16 +104,17 @@ namespace BackendModelTest
             _testCustomerList.AddNewOrder(fourthTestOrder, 7);
 
             _testCustomerList.ToJSON(_testCustomerList.ListOfCustomers, path);
-            Assert.IsTrue(System.IO.File.Exists(path + "ApplicationData.json"));
+            Assert.IsTrue(System.IO.File.Exists(path));
             
         }
 
         [Test]
         public void TestJsonLoader()
         {
+            string path = Path.Combine(directory, filename);
             _derivedTestCustomerList = new CustomerList()
             {
-                ListOfCustomers = _testCustomerList.LoadJson(path + "ApplicationData.json")
+                ListOfCustomers = _testCustomerList.LoadJson(path)
             };
             int numberOfCustomers = _derivedTestCustomerList.NumberOfCustomers();
             Assert.AreEqual(2, numberOfCustomers);
