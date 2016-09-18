@@ -15,8 +15,7 @@ namespace BackendModelTest
     [TestFixture]
     class TestJsonIO
     {
-        private string directory = System.IO.Directory.GetCurrentDirectory();
-        private string filename = "ApplicationData.json";
+        private string path = Path.Combine(Directory.GetCurrentDirectory(), "ApplicationData.json");
         //"C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/";
         private CustomerList _testCustomerList, _derivedTestCustomerList;
         private CustomerDetails _firstCustomerDetails, _secondCustomerDetails;
@@ -95,7 +94,6 @@ namespace BackendModelTest
         [Test]
         public void TestJsonWriter()
         {
-            string path = Path.Combine(directory, filename);
             _testCustomerList.AddCustomer(_firstCustomerDetails);
             _testCustomerList.AddCustomer(_secondCustomerDetails);
             _testCustomerList.AddNewOrder(firstTestOrder, 18);
@@ -111,7 +109,6 @@ namespace BackendModelTest
         [Test]
         public void TestJsonLoader()
         {
-            string path = Path.Combine(directory, filename);
             _derivedTestCustomerList = new CustomerList()
             {
                 ListOfCustomers = _testCustomerList.LoadJson(path)
