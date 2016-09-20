@@ -18,7 +18,6 @@ namespace StringCalculatorTDD
                 foreach (string word in input.Split(','))
                     sum += int.Parse(word);
                 return sum;
-            return 0;
         }
     }
 }
