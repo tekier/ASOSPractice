@@ -26,28 +26,23 @@ namespace StringCalculatorTDDTests
             result.Should().Be(expectedResult);
         }
 
-        [Test]
-        public void ReturnSumOfInputStringZeroCommaOneAsInteger()
+        [TestCase("0,1", 1)]
+        [TestCase("1,1", 2)]
+        [TestCase("2,1", 3)]
+        public void ReturnSumOfInputStringOfNumbersSeperatedByCommas(string inputString, int expectedResult)
         {
-            var result = StringCalculator.Calculate("0,1");
+            int result = StringCalculator.Calculate(inputString);
+            result.Should().Be(expectedResult);
+        }
 
+        [Test]
+        public void ReturnSumOfInputStringOfNumbersSeperateedByCommasWithMissingNumbers()
+        {
+            int result = StringCalculator.Calculate("1,,0");
             result.Should().Be(1);
         }
-
-        [Test]
-        public void ReturnSumOfInputStringOneCommaOneAsInteger()
-        {
-            var result = StringCalculator.Calculate("1,1");
-
-            result.Should().Be(2);
-        }
-
-        [Test]
-        public void ReturnSumOfInputStringOneCommaTwoAsInteger()
-        {
-            var result = StringCalculator.Calculate("1,2");
-
-            result.Should().Be(3);
-        }
+        
+        //[Test]
+        //public void ReturnSumOfInputStringOfNumbers
     }
 }

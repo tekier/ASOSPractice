@@ -15,9 +15,18 @@ namespace StringCalculatorTDD
                 return 3;**/
             int sum = 0;
             if (input != "")
+            {
                 foreach (string word in input.Split(','))
-                    sum += int.Parse(word);
-                return sum;
+                {
+                    int parsedInt;
+                    if (int.TryParse(word, out parsedInt))
+                    {
+                        sum += parsedInt;
+                    }
+
+                }
+            }
+            return sum;
         }
     }
 }
