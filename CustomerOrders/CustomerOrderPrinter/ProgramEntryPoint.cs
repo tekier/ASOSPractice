@@ -12,7 +12,7 @@ namespace CustomerOrderPrinter
         {
             CustomerController runnable = new CustomerController();
             runnable.UpdateView();
-            string c = Console.ReadLine();
+            var toStopApplicationFromClosing = Console.ReadLine();
         }
     }
 }

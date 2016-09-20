@@ -17,17 +17,19 @@ namespace CustomerOrderPrinter
             foreach (CustomerDetails customer in list.ListOfCustomers)
             {
                 PrintCustomerDetails(customer.CustomerObject);
+                Console.WriteLine("Age: "+customer.GetCustomerAge());
                 Console.WriteLine();
+                Console.WriteLine("This customer's orders are:");
+                Console.WriteLine();
+                PrintCustomerOrders(customer.CustomerObject);
+                Console.WriteLine("_______________________________________________");
             }
         }
 
         public void PrintCustomerDetails(Customer customer)
         {
-            Console.WriteLine(customer.Name);
-            Console.WriteLine(customer.Id);
-            Console.WriteLine(customer.DateOfBirth.ToString(CultureInfo.CurrentCulture));
-            Console.WriteLine("This customer's orders are:");
-            PrintCustomerOrders(customer);
+            Console.WriteLine("Name: " + customer.Name);
+            Console.WriteLine("ID: "+ customer.Id);
             
         }
 
@@ -35,9 +37,9 @@ namespace CustomerOrderPrinter
         {
             foreach (Order order in customer.Orders)
             {
-                Console.WriteLine(order.Item);
-                Console.WriteLine(order.OrderId);
-                Console.WriteLine(order.Quantity);
+                Console.WriteLine("Item: " + order.Item);
+                Console.WriteLine("Order ID: " + order.OrderId);
+                Console.WriteLine("Number Of Units: " + order.Quantity);
                 Console.WriteLine();
             }
         }
