@@ -11,6 +11,7 @@ namespace BackendModel
     public class CustomerList
     {
         public virtual List<CustomerDetails> ListOfCustomers { get; set; }
+        public string PathName = Path.Combine(Directory.GetCurrentDirectory(), "ApplicationData.json");
 
         public void AddCustomer(CustomerDetails newCustomerDetails)
         {
@@ -37,16 +38,16 @@ namespace BackendModel
             return ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).GetOrder(orderId);
         }
 
-        public void ToJSON(List<CustomerDetails> inputObj, string path)
+        public void ToJSON(List<CustomerDetails> inputObj)
         {
             string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
-            System.IO.File.WriteAllText(path, json);
+            System.IO.File.WriteAllText(PathName, json);
             
         }
 
-        public List<CustomerDetails> LoadJson(string path)
+        public List<CustomerDetails> LoadJson()
         {
-            string json = System.IO.File.ReadAllText(path);
+            string json = System.IO.File.ReadAllText(PathName);
             return JsonConvert.DeserializeObject<List<CustomerDetails>>(json);
         }
     }

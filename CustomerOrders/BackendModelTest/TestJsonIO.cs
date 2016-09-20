@@ -101,7 +101,7 @@ namespace BackendModelTest
             _testCustomerList.AddNewOrder(thirdTestOrder, 18);
             _testCustomerList.AddNewOrder(fourthTestOrder, 7);
 
-            _testCustomerList.ToJSON(_testCustomerList.ListOfCustomers, path);
+            _testCustomerList.ToJSON(_testCustomerList.ListOfCustomers);
             Assert.IsTrue(System.IO.File.Exists(path));
             
         }
@@ -111,7 +111,7 @@ namespace BackendModelTest
         {
             _derivedTestCustomerList = new CustomerList()
             {
-                ListOfCustomers = _testCustomerList.LoadJson(path)
+                ListOfCustomers = _testCustomerList.LoadJson()
             };
             int numberOfCustomers = _derivedTestCustomerList.NumberOfCustomers();
             Assert.AreEqual(2, numberOfCustomers);
