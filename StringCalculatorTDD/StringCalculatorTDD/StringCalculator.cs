@@ -13,6 +13,7 @@ namespace StringCalculatorTDD
                 return 2;
             if (input == "1,2")
                 return 3;**/
+
             int sum = 0;
             if (input != "")
             {
