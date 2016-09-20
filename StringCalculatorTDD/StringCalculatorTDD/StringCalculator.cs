@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿namespace StringCalculatorTDD
 
-namespace StringCalculatorTDD
 {
     public class StringCalculator
     {
@@ -24,10 +22,11 @@ namespace StringCalculatorTDD
                     {
                         sum += parsedInt;
                     }
-
                 }
             }
             return sum;
         }
     }
+
+
 }
