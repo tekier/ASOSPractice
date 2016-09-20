@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Security.Cryptography.X509Certificates;
+using FluentAssertions;
 using NUnit.Framework;
 using StringCalculatorTDD;
 
@@ -23,6 +24,30 @@ namespace StringCalculatorTDDTests
             var result = StringCalculator.Calculate(inputString);
 
             result.Should().Be(expectedResult);
+        }
+
+        [Test]
+        public void ReturnSumOfInputStringZeroCommaOneAsInteger()
+        {
+            var result = StringCalculator.Calculate("0,1");
+
+            result.Should().Be(1);
+        }
+
+        [Test]
+        public void ReturnSumOfInputStringOneCommaOneAsInteger()
+        {
+            var result = StringCalculator.Calculate("1,1");
+
+            result.Should().Be(2);
+        }
+
+        [Test]
+        public void ReturnSumOfInputStringOneCommaTwoAsInteger()
+        {
+            var result = StringCalculator.Calculate("1,2");
+
+            result.Should().Be(3);
         }
     }
 }
