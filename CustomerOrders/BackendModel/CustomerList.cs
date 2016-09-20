@@ -45,10 +45,10 @@ namespace BackendModel
             
         }
 
-        public List<CustomerDetails> LoadJson()
+        public void LoadJson()
         {
             string json = System.IO.File.ReadAllText(PathName);
-            return JsonConvert.DeserializeObject<List<CustomerDetails>>(json);
+            this.ListOfCustomers = JsonConvert.DeserializeObject<List<CustomerDetails>>(json);
         }
     }
 }
