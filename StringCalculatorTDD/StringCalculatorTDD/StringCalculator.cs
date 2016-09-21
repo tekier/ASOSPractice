@@ -3,7 +3,7 @@
 {
     public class StringCalculator
     {
-        public static int Calculate(string input)
+        public int Calculate(string input)
         {
             /**if (input == "0,1")
                 return 1;

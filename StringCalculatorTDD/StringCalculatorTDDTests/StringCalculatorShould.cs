@@ -7,10 +7,18 @@ namespace StringCalculatorTDDTests
     [TestFixture]
     class StringCalculatorShould
     {
+        private StringCalculator calculator;
+
+        [TestFixtureSetUp]
+        public void SetUp()
+        {
+            calculator = new StringCalculator();   
+        }
+
         [Test]
         public void ReturnZero_GivenAnEmptyString()
         {
-            var result = StringCalculator.Calculate("");
+            var result = calculator.Calculate("");
 
             result.Should().Be(0);
         }
@@ -20,7 +28,7 @@ namespace StringCalculatorTDDTests
         [TestCase("3", 3)]
         public void ReturnIntegerRepresentationOfInputString(string inputString, int expectedResult)
         {
-            var result = StringCalculator.Calculate(inputString);
+            var result = calculator.Calculate(inputString);
 
             result.Should().Be(expectedResult);
         }
@@ -30,7 +38,7 @@ namespace StringCalculatorTDDTests
         [TestCase("2,1", 3)]
         public void ReturnSumOfInputStringOfNumbersSeperatedByCommas(string inputString, int expectedResult)
         {
-            int result = StringCalculator.Calculate(inputString);
+            int result = calculator.Calculate(inputString);
             result.Should().Be(expectedResult);
         }
 
@@ -39,7 +47,7 @@ namespace StringCalculatorTDDTests
         [TestCase(",0,1",1)]
         public void ReturnSumOfInputStringOfNumbersSeperatedByCommasWithMissingNumbers(string inputString, int expectedResult)
         {
-            int result = StringCalculator.Calculate(inputString);
+            int result = calculator.Calculate(inputString);
             result.Should().Be(expectedResult);
         }
 
@@ -48,7 +56,7 @@ namespace StringCalculatorTDDTests
         [TestCase("25,75,1,8,0,1", 110)]
         public void ReturnSumOfInputStringOfMoreThanTwoNumbersSeperatedByCommas(string inputString, int expectedResult)
         {
-            int result = StringCalculator.Calculate(inputString);
+            int result = calculator.Calculate(inputString);
 
             result.Should().Be(expectedResult);
         }
@@ -59,7 +67,7 @@ namespace StringCalculatorTDDTests
         [TestCase("",0)]
         public void ReturnSumOfInputStringOfMoreThanTwoNumbersSeperatedByCommasWithMissingNumbers(string inputString,int expectedResult)
         {
-            int result = StringCalculator.Calculate(inputString);
+            int result = calculator.Calculate(inputString);
 
             result.Should().Be(expectedResult);
         }
@@ -70,7 +78,7 @@ namespace StringCalculatorTDDTests
         [TestCase("\x00,\x56,\x56")]
         public void ReturnZeroWithUnexpectedInputStrings(string inputString)
         {
-            int result = StringCalculator.Calculate(inputString);
+            int result = calculator.Calculate(inputString);
 
             result.Should().Be(0);
         }
@@ -83,7 +91,7 @@ namespace StringCalculatorTDDTests
         public void ReturnCorrectResultWithMixedStringsContainingNumbersAndRandomCharactersSeperatedByCommas(
             string inputString, int expectedResult)
         {
-            int result = StringCalculator.Calculate(inputString);
+            int result = calculator.Calculate(inputString);
 
             result.Should().Be(expectedResult);
         }

@@ -14,7 +14,8 @@ namespace StringCalculatorWebApp.Controllers
 
         public IHttpActionResult CalculateString(string inputString)
         {
-            return Ok(StringCalculator.Calculate(inputString));
+            var sum = stringCalculator.Calculate(inputString);
+            return Ok(sum);
         }
 
     }
