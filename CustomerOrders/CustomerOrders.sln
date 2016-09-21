@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FEC7F4
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrderPrinter", "CustomerOrderPrinter\CustomerOrderPrinter.csproj", "{FE2C701B-20D2-418E-ACC7-C7708DF60D55}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +26,6 @@ Global
 		{25DBC391-7B35-4B2C-9E89-A2A2BB830E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25DBC391-7B35-4B2C-9E89-A2A2BB830E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25DBC391-7B35-4B2C-9E89-A2A2BB830E1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE2C701B-20D2-418E-ACC7-C7708DF60D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE2C701B-20D2-418E-ACC7-C7708DF60D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE2C701B-20D2-418E-ACC7-C7708DF60D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE2C701B-20D2-418E-ACC7-C7708DF60D55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -109,10 +109,12 @@ namespace BackendModelTest
         [Test]
         public void TestJsonLoader()
         {
-            _derivedTestCustomerList = new CustomerList()
-            {
+            _derivedTestCustomerList = new CustomerList();
+            /*{
                 ListOfCustomers = _testCustomerList.LoadJson()
-            };
+            };*/
+            _derivedTestCustomerList.LoadJson();
+            
             int numberOfCustomers = _derivedTestCustomerList.NumberOfCustomers();
             Assert.AreEqual(2, numberOfCustomers);
 
