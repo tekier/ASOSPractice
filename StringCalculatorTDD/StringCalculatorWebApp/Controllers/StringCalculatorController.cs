@@ -10,13 +10,12 @@ namespace StringCalculatorWebApp.Controllers
 {
     public class StringCalculatorController : ApiController
     {
-        StringCalculator stringCalculator;//= new StringCalculator();
-
-        public IHttpActionResult CalculateString(string inputString)
+        StringCalculator stringCalculator = new StringCalculator();
+        
+        [HttpGet]
+        public IHttpActionResult GetCalculatedString(string inputString)
         {
-            stringCalculator = new StringCalculator();
-            var sum = stringCalculator.Calculate(inputString);
-            return Ok(sum);
+            return Ok(stringCalculator.Calculate(inputString));
         }
 
     }

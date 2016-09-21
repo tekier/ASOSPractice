@@ -7,24 +7,20 @@
 
 <div>
     <h2>Enter string to calculate</h2>
-    <input type="text" id="inputString" size="5"/>
+    <input type="text" id="inp" size="20"/>
     <input type="button" value="Calculate" onclick="calculate();"/>
     <p id="sum"/>
 </div>
+
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 <script>
-    var uri = "api/stringcalculator";
-
-    $(document).ready(function () {
-            $.getJSON(uri);
-            console.log("ready...");
-        });
-
+    var uri = "api/StringCalculator";
+    
     function calculate() {
-        var input = $('#inputString').val();
-        $.getJSON(uri + '/' + input)
-            .done(function(data) {
-                $('#sum').text();
+        var input = $('#inp').val();
+        $.getJSON(uri + '/?inputString=' + input)
+            .done(function (data) {
+                $('#sum').text('Answer: ' + data);
             })
             .fail(function(jqXHR, textStatus, err) {
                 $('#sum').text('Error: ' + err);
