@@ -66,7 +66,8 @@ namespace StringCalculatorTDDTests
 
         [TestCase("%%FGASFDFsdfq34uilf;asdfasdfiluawylevfba")]
         [TestCase(",,3145adsf,qdfasf=asdf,,====,,,")]
-        [TestCase("\n\n\n\n\n")]
+        [TestCase("\n\n\n\t\n")]
+        [TestCase("\x00,\x56,\x56")]
         public void ReturnZeroWithUnexpectedInputStrings(string inputString)
         {
             int result = StringCalculator.Calculate(inputString);

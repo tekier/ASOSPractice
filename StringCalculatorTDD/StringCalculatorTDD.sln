@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorTDD", "Stri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorTDDTests", "StringCalculatorTDDTests\StringCalculatorTDDTests.csproj", "{BDDA8150-F4BB-4CF4-B666-BEC949154DD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorWebApp", "StringCalculatorWebApp\StringCalculatorWebApp.csproj", "{442742DD-CBC8-422A-8D16-121220605474}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BDDA8150-F4BB-4CF4-B666-BEC949154DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDDA8150-F4BB-4CF4-B666-BEC949154DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDDA8150-F4BB-4CF4-B666-BEC949154DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{442742DD-CBC8-422A-8D16-121220605474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{442742DD-CBC8-422A-8D16-121220605474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{442742DD-CBC8-422A-8D16-121220605474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{442742DD-CBC8-422A-8D16-121220605474}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
