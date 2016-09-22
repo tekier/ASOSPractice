@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace BackendModel
@@ -43,6 +39,12 @@ namespace BackendModel
             string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
             System.IO.File.WriteAllText(PathName, json);
             
+        }
+
+        public void LoadJson(string path)
+        {
+            string json = System.IO.File.ReadAllText(path);
+            this.ListOfCustomers = JsonConvert.DeserializeObject<List<CustomerDetails>>(json);
         }
 
         public void LoadJson()
