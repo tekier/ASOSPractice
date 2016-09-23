@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Web.Mvc;
 using BackendModel;
@@ -12,7 +13,7 @@ namespace CustomerOrdersUI.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            _list.LoadJson("C:\\Users\\ahmed.sohail\\Documents\\ApplicationData.json");
+            _list.LoadJson(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "ApplicationData.json"));
             ViewBag.Customers = _list.ListOfCustomers;
             return View();
         }

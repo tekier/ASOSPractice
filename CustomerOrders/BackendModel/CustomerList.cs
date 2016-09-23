@@ -8,7 +8,7 @@ namespace BackendModel
     public class CustomerList
     {
         public virtual List<CustomerDetails> ListOfCustomers { get; set; }
-        public string PathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..", "ApplicationData.json");
+        public string PathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..", "ApplicationData.json");
         public void AddCustomer(CustomerDetails newCustomerDetails)
         {
             ListOfCustomers.Add(newCustomerDetails);
