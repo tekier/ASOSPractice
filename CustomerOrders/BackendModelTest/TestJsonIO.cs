@@ -7,13 +7,12 @@ using NUnit.Framework;
 namespace BackendModelTest
 {
     [TestFixture]
-    class TestJsonIO
+    class TestJsonIo
     {
-        private string path = Path.Combine(Directory.GetCurrentDirectory(), "ApplicationData.json");
-        //"C:/Users/ahmed.sohail/Source/Repos/ASOSPractice/CustomerOrders/";
+        private string _path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "ApplicationData.json");
         private CustomerList _testCustomerList, _derivedTestCustomerList;
         private CustomerDetails _firstCustomerDetails, _secondCustomerDetails;
-        private Order firstTestOrder, secondTestOrder, thirdTestOrder, fourthTestOrder;
+        private Order _firstTestOrder, _secondTestOrder, _thirdTestOrder, _fourthTestOrder;
 
         [TestFixtureSetUp]
         public void SetUp()
@@ -55,28 +54,28 @@ namespace BackendModelTest
                 }
             };
 
-            firstTestOrder = new Order
+            _firstTestOrder = new Order
             {
                 Item = "suit",
                 OrderId = 99,
                 Quantity = 1
             };
 
-            secondTestOrder = new Order
+            _secondTestOrder = new Order
             {
                 Item = "coat",
                 OrderId = 12,
                 Quantity = 1
             };
 
-            thirdTestOrder = new Order
+            _thirdTestOrder = new Order
             {
                 Item = "hat",
                 OrderId = 900,
                 Quantity = 5
             };
 
-            fourthTestOrder = new Order
+            _fourthTestOrder = new Order
             {
                 Item = "cardigan",
                 OrderId = 88,
@@ -90,13 +89,14 @@ namespace BackendModelTest
         {
             _testCustomerList.AddCustomer(_firstCustomerDetails);
             _testCustomerList.AddCustomer(_secondCustomerDetails);
-            _testCustomerList.AddNewOrder(firstTestOrder, 18);
-            _testCustomerList.AddNewOrder(secondTestOrder, 18);
-            _testCustomerList.AddNewOrder(thirdTestOrder, 18);
-            _testCustomerList.AddNewOrder(fourthTestOrder, 7);
+            _testCustomerList.AddNewOrder(_firstTestOrder, 18);
+            _testCustomerList.AddNewOrder(_secondTestOrder, 18);
+            _testCustomerList.AddNewOrder(_thirdTestOrder, 18);
+            _testCustomerList.AddNewOrder(_fourthTestOrder, 7);
+            _testCustomerList.ConvertToJson(_testCustomerList.ListOfCustomers);
+            //_testCustomerList.ConvertToJson(_testCustomerList.ListOfCustomers);
 
-            _testCustomerList.ToJSON(_testCustomerList.ListOfCustomers);
-            Assert.IsTrue(System.IO.File.Exists(path));
+            Assert.IsTrue(File.Exists(_path));
             
         }
 

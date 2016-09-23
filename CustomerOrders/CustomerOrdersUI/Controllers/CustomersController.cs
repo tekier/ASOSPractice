@@ -1,18 +1,21 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Reflection;
+using System.Web.Mvc;
 using BackendModel;
 
 namespace CustomerOrdersUI.Controllers
 {
     public class CustomersController : Controller {
     
-        private CustomerList list = new CustomerList();
+        private CustomerList _list = new CustomerList();
         
         // GET: Customers
         public ActionResult Index()
         {
-            list.LoadJson("C:\\Users\\ahmed.sohail\\Documents\\ApplicationData.json");
-            ViewBag.Customers = list.ListOfCustomers;
+            _list.LoadJson("C:\\Users\\ahmed.sohail\\Documents\\ApplicationData.json");
+            ViewBag.Customers = _list.ListOfCustomers;
             return View();
         }
+
     }
 }

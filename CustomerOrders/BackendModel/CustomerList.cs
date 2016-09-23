@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
@@ -7,8 +8,7 @@ namespace BackendModel
     public class CustomerList
     {
         public virtual List<CustomerDetails> ListOfCustomers { get; set; }
-        public string PathName = Path.Combine(Directory.GetCurrentDirectory(), "ApplicationData.json");
-
+        public string PathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..", "ApplicationData.json");
         public void AddCustomer(CustomerDetails newCustomerDetails)
         {
             ListOfCustomers.Add(newCustomerDetails);
@@ -34,13 +34,23 @@ namespace BackendModel
             return ListOfCustomers.Find(customer => customer.GetCustomerId() == custId).GetOrder(orderId);
         }
 
-        public void ToJSON(List<CustomerDetails> inputObj)
+        public void ConvertToJson(List<CustomerDetails> inputObj, string path)
         {
             string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
-            System.IO.File.WriteAllText(PathName, json);
-            
+            File.WriteAllText(PathName, json);
         }
 
+        public void ConvertToJson(List<CustomerDetails> inputObj)
+        {
+            Console.WriteLine(PathName);
+            string json = JsonConvert.SerializeObject(inputObj, Formatting.Indented);
+            File.WriteAllText(PathName, json);
+
+        }
+        
+
+
+        //Mainly for testing
         public void LoadJson(string path)
         {
             string json = System.IO.File.ReadAllText(path);

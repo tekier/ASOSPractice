@@ -1,0 +1,48 @@
+[
+  {
+    "CustomerObject": {
+      "Id": 18,
+      "Name": "Paul",
+      "DateOfBirth": "1994-05-05T00:00:00",
+      "Orders": [
+        {
+          "OrderId": 99,
+          "Item": "suit",
+          "Quantity": 1
+        },
+        {
+          "OrderId": 12,
+          "Item": "coat",
+          "Quantity": 1
+        },
+        {
+          "OrderId": 900,
+          "Item": "hat",
+          "Quantity": 5
+        }
+      ],
+      "CustomerAddress": {
+        "House": "Casa",
+        "Postcode": "NW135T"
+      }
+    }
+  },
+  {
+    "CustomerObject": {
+      "Id": 7,
+      "Name": "Jimmy",
+      "DateOfBirth": "1993-02-01T00:00:00",
+      "Orders": [
+        {
+          "OrderId": 88,
+          "Item": "cardigan",
+          "Quantity": 45
+        }
+      ],
+      "CustomerAddress": {
+        "House": "Kieser",
+        "Postcode": "AAABBB"
+      }
+    }
+  }
+]
