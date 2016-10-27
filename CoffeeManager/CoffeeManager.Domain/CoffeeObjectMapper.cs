@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CoffeeManager.Contracts;
 using Dapper;
 
@@ -13,31 +10,31 @@ namespace CoffeeManager.Domain
 {
     public class CoffeeObjectMapper
     {
-        private const string _databaseConnectionString =
+        private const string DatabaseConnectionString =
             "Data Source=ASGLH-WL-11919;Initial Catalog=CoffeeDatabase;Integrated Security=True";
 
-        private IEnumerable<Coffee> _coffeeList;
-        private IEnumerable<Coffee> _inputCoffeeList;
+        private readonly IEnumerable<Coffee> _inputCoffeeList = new List<Coffee>();
 
-        public IEnumerable<Coffee> GetCoffeeListFromDatabase()
+        public IEnumerable<Coffee> GetCoffeeListFromDatabase(string sql = "SELECT * FROM Coffee")
         {
-            using (SqlConnection connection = new SqlConnection(_databaseConnectionString))
+            using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
             {
-                return connection.Query<Coffee>("SELECT * FROM Coffee").ToList();
+                return connection.Query<Coffee>(sql).ToList();
             }
         }
         public void AddToInputList(Coffee coffee)
         {
+            // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
             _inputCoffeeList.Concat(new[] {coffee});
         }
-        public void AddListToDatabase(IEnumerable<Coffee> _inputCoffeeList)
+        public void AddListToDatabase(IEnumerable<Coffee> inputCoffeeList)
         {
-            using (SqlConnection connection = new SqlConnection(_databaseConnectionString))
+            using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
             {
                 connection.Open();
                 try
                 {
-                    connection.Execute("INSERT INTO Coffee VALUES (@Strength, @Country, @IsDecaf)", _inputCoffeeList);
+                    connection.Execute("INSERT INTO Coffee VALUES (@Strength, @Country, @IsDecaf)", inputCoffeeList);
                 }
                 catch (Exception exception)
                 {
