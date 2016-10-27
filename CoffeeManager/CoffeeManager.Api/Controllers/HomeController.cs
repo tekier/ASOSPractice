@@ -19,5 +19,16 @@ namespace CoffeeManager.Api.Controllers
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
         }
+        public IHttpActionResult Get(int id)
+        {
+            try
+            {
+                return Ok(_mapper.GetCoffeeListFromDatabase(id));
+            }
+            catch
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+        }
     }
 }

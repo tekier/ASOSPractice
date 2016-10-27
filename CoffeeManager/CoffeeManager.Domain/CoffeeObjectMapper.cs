@@ -22,6 +22,14 @@ namespace CoffeeManager.Domain
                 return connection.Query<Coffee>(sql).ToList();
             }
         }
+
+        public List<Coffee> GetCoffeeListFromDatabase(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
+            {
+                return connection.Query<Coffee>(String.Concat("SELECT * FROM Coffee WHERE Id = ", id)).ToList();
+            }
+        }
         public void AddToInputList(Coffee coffee)
         {
             // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
