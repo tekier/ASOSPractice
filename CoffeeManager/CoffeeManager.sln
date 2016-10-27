@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Domain", "Cof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Test", "CoffeeManager.Test\CoffeeManager.Test.csproj", "{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Api", "CoffeeManager.Api\CoffeeManager.Api.csproj", "{3CA055A1-E35B-4124-8078-71308CBAA3C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Api", "CoffeeManager.Api\CoffeeManager.Api.csproj", "{684431B3-D012-4C3B-BB66-EAE21F89B086}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CA055A1-E35B-4124-8078-71308CBAA3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CA055A1-E35B-4124-8078-71308CBAA3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CA055A1-E35B-4124-8078-71308CBAA3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CA055A1-E35B-4124-8078-71308CBAA3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{684431B3-D012-4C3B-BB66-EAE21F89B086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684431B3-D012-4C3B-BB66-EAE21F89B086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684431B3-D012-4C3B-BB66-EAE21F89B086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684431B3-D012-4C3B-BB66-EAE21F89B086}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
