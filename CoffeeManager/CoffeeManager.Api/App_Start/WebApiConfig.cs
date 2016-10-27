@@ -15,6 +15,12 @@ namespace CoffeeManager.Api
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "TawqirsApi",
+                routeTemplate: "{controller}/{id}",
+                defaults: new { controller = "Home", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

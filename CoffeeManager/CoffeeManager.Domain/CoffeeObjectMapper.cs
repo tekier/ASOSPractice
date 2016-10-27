@@ -15,7 +15,7 @@ namespace CoffeeManager.Domain
 
         private readonly IEnumerable<Coffee> _inputCoffeeList = new List<Coffee>();
 
-        public IEnumerable<Coffee> GetCoffeeListFromDatabase(string sql = "SELECT * FROM Coffee")
+        public List<Coffee> GetCoffeeListFromDatabase(string sql = "SELECT * FROM Coffee")
         {
             using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
             {
