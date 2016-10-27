@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Contracts", "CoffeeManager.Contracts\CoffeeManager.Contracts.csproj", "{EC730AC3-B68F-41FD-9C94-DBAB5B42AE27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Domain", "CoffeeManager.Domain\CoffeeManager.Domain.csproj", "{43BBD7E2-CEB5-4C2A-BDFE-107539007688}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Test", "CoffeeManager.Test\CoffeeManager.Test.csproj", "{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{EC730AC3-B68F-41FD-9C94-DBAB5B42AE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC730AC3-B68F-41FD-9C94-DBAB5B42AE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC730AC3-B68F-41FD-9C94-DBAB5B42AE27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43BBD7E2-CEB5-4C2A-BDFE-107539007688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BBD7E2-CEB5-4C2A-BDFE-107539007688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BBD7E2-CEB5-4C2A-BDFE-107539007688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BBD7E2-CEB5-4C2A-BDFE-107539007688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81936577-A5AB-4AD6-A019-F5C58F5EDFE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
