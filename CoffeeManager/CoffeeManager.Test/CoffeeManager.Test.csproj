@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CoffeeManager.Contracts\CoffeeManager.Contracts.csproj">
+      <Project>{EC730AC3-B68F-41FD-9C94-DBAB5B42AE27}</Project>
+      <Name>CoffeeManager.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoffeeManager.Domain\CoffeeManager.Domain.csproj">
       <Project>{43BBD7E2-CEB5-4C2A-BDFE-107539007688}</Project>
       <Name>CoffeeManager.Domain</Name>
