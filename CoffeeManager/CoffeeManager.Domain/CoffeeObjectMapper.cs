@@ -18,18 +18,14 @@ namespace CoffeeManager.Domain
         private IEnumerable<Coffee> _coffeeList;
         private IEnumerable<Coffee> _inputCoffeeList;
 
-        public CoffeeObjectMapper()
+        public void AddListToDatabase(IEnumerable<Coffee> _inputCoffeeList)
         {
-        }
-
-        public void DoNotCall()
-        {
-            _inputCoffeeList = new List<Coffee>
-            {
-                new Coffee {Country = "Costa Rica", IsDecaf = false, Strength = 4},
-                new Coffee {Country = "India", IsDecaf = false, Strength = 3},
-                new Coffee {Country = "Kenya", IsDecaf = true, Strength = 2}
-            };
+            //_inputCoffeeList = new List<Coffee>
+            //{
+            //    new Coffee {Country = "Costa Rica", IsDecaf = false, Strength = 4},
+            //    new Coffee {Country = "India", IsDecaf = false, Strength = 3},
+            //    new Coffee {Country = "Kenya", IsDecaf = true, Strength = 2}
+            //};
 
             using (SqlConnection connection = new SqlConnection(_databaseConnectionString))
             {
