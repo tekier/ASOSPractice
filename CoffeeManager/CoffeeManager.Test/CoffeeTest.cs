@@ -31,9 +31,8 @@ namespace CoffeeManager.Test
         public void LastEntryFromListOfCoffeesShouldCorrectlyBeReturnedFromDb()
         {
             IEnumerable<Coffee> testList = _testMapper.GetCoffeeListFromDatabase();
-            bool expectedOutput = true;
             bool actualOutput = testList.Last().IsDecaf;
-            Assert.IsTrue(expectedOutput && actualOutput);
+            Assert.IsFalse(actualOutput);
         }
     }
 }
