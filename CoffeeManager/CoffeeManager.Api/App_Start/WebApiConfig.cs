@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http.Headers;
+using System.Web.Http;
 
 namespace CoffeeManager.Api
 {
@@ -22,6 +23,8 @@ namespace CoffeeManager.Api
                 routeTemplate: "{controller}/{id}",
                 defaults: new {controller="Home",id = RouteParameter.Optional}
             );
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
     }
 }

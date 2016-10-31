@@ -1,30 +1,37 @@
-﻿<!DOCTYPE html>
+﻿<!--<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
-    <style>
-        .coffee {
-            color: brown;
-        }
-        .list {
-            list-style: bullet;
-        }
-    </style>
+    <title>CoffeeDB</title>
 </head>
 <body>
 <h3>List of Coffees from around the world:</h3>
-<div class="coffee list">
-    <ul>
 
+<div class="coffee">
+    <ul>
+            
     </ul>
 </div>
+<input type="button" id="getcoffees" value="press me bitch"/>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        
-    })
+<script type="text/javascript" language="javascript">
+    $(document)
+        .ready(function() {
+            $('#getcoffees')
+                .click(function(event) {
+                    $.getJSON("/api/Home",
+                        function(data) {
+                            var $ul = $('ul');
+                            $.each(data,
+                                function(idx, item) {
+                                    $ul.append('<li>'+item.Country+'</li>');
+                                });
+                        });
+                });
+        });
 </script>
-</html>
+</html>-->
+<h1>It workds.</h1>
