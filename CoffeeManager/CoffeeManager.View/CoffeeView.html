@@ -1,4 +1,4 @@
-﻿<!--<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,16 +13,16 @@
             
     </ul>
 </div>
-<input type="button" id="getcoffees" value="press me bitch"/>
+    <input type="button" id="getcoffees" value="press me" />
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" language="javascript">
     $(document)
-        .ready(function() {
+        .ready(function () {
             $('#getcoffees')
-                .click(function(event) {
-                    $.getJSON("/api/Home",
+                .click(function() {
+                    $.getJSON("http://localhost:45553/api/home",
                         function(data) {
                             var $ul = $('ul');
                             $.each(data,
@@ -33,5 +33,4 @@
                 });
         });
 </script>
-</html>-->
-<h1>It workds.</h1>
+</html>

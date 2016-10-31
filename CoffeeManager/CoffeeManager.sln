@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Api", "Coffee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.View", "CoffeeManager.View\CoffeeManager.View.csproj", "{2015E18F-29FF-4B21-ABF3-D0148AF99205}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CB27C802-2A42-4BD0-9FB0-2C5030555F4D}"
+	ProjectSection(SolutionItems) = preProject
+		Page.html = Page.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
