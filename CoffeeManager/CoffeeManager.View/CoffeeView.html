@@ -9,8 +9,9 @@
         $(document).ready(function () {
             $('button').click(function () {
                 $.getJSON('http://localhost:45553/api/home', function (result) {
-                    $.each(result, function() {
-                        $('ul').append('<li> From '+ this.Country + ' with Strength '+this.Strength+' and decaf is '+this.IsDecaf+'</li>');
+                    $('ul').empty();
+                    $.each(result, function () {
+                        $('ul').append('<li> From ' + this.Country + ' with Strength ' + this.Strength + ' and decaf is ' + this.IsDecaf + '</li>');
                     });
                 });
                 
