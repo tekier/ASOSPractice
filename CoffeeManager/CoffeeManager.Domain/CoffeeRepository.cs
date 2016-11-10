@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -8,36 +9,36 @@ using Dapper;
 
 namespace CoffeeManager.Domain
 {
-    public class CoffeeObjectMapper
+    public class CoffeeRepository
     {
-        private const string DatabaseConnectionString =
-            "Data Source=ASGLH-WL-11919;Initial Catalog=CoffeeDatabase;Integrated Security=True";
+        private string _connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
 
         private readonly IEnumerable<Coffee> _inputCoffeeList = new List<Coffee>();
 
-        public List<Coffee> GetCoffeeListFromDatabase(string sql = "SELECT * FROM Coffee")
+        public List<Coffee> GetCoffeeList(string selectQuery = "SELECT * FROM Coffee")
         {
-            using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                return connection.Query<Coffee>(sql).ToList();
+                return connection.Query<Coffee>(selectQuery).ToList();
+            
             }
         }
 
-        public List<Coffee> GetCoffeeListFromDatabase(int id)
+        public List<Coffee> GetCoffeeList(int id)
         {
-            using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 return connection.Query<Coffee>(String.Concat("SELECT * FROM Coffee WHERE Id = ", id)).ToList();
             }
         }
-        public void AddToInputList(Coffee coffee)
+        public void AddCoffeeBeforeInput(Coffee coffee)
         {
             // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
             _inputCoffeeList.Concat(new[] {coffee});
         }
-        public void AddListToDatabase(IEnumerable<Coffee> inputCoffeeList)
+        public void AddCoffeeList(IEnumerable<Coffee> inputCoffeeList)
         {
-            using (SqlConnection connection = new SqlConnection(DatabaseConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 try
@@ -47,7 +48,6 @@ namespace CoffeeManager.Domain
                 catch (Exception exception)
                 {
                     Debug.Print(exception.Message);
-                    throw;
                 }
                 
             }

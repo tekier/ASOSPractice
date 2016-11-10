@@ -7,27 +7,27 @@ namespace CoffeeManager.Api.Controllers
 {
     public class HomeController : ApiController
     {
-        private readonly CoffeeObjectMapper _mapper = new CoffeeObjectMapper();
+        private readonly CoffeeRepository _coffeeRepository = new CoffeeRepository();
         public IHttpActionResult Get()
         {
             try
             {
-                return Ok(_mapper.GetCoffeeListFromDatabase());
+                return Ok(_coffeeRepository.GetCoffeeList());
             }
             catch
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                return NotFound();
             }
         }
         public IHttpActionResult Get(int id)
         {
             try
             {
-                return Ok(_mapper.GetCoffeeListFromDatabase(id));
+                return Ok(_coffeeRepository.GetCoffeeList(id));
             }
             catch
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                return NotFound();
             }
         }
     }
