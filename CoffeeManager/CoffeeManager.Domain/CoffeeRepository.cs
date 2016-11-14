@@ -11,7 +11,7 @@ namespace CoffeeManager.Domain
 {
     public class CoffeeRepository
     {
-        private string _connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+        private readonly string _connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
 
         private readonly IEnumerable<Coffee> _inputCoffeeList = new List<Coffee>();
 

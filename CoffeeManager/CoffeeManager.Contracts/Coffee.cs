@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CoffeeManager.Contracts
+﻿namespace CoffeeManager.Contracts
 {
     public class Coffee
     {
