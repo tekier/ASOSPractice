@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.Api", "Coffee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.View", "CoffeeManager.View\CoffeeManager.View.csproj", "{2015E18F-29FF-4B21-ABF3-D0148AF99205}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeManager.HttpClient", "CoffeeManager.HttpClient\CoffeeManager.HttpClient.csproj", "{57D0B58E-D0C5-41B9-ADDB-86E7F482843D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2015E18F-29FF-4B21-ABF3-D0148AF99205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2015E18F-29FF-4B21-ABF3-D0148AF99205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2015E18F-29FF-4B21-ABF3-D0148AF99205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D0B58E-D0C5-41B9-ADDB-86E7F482843D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D0B58E-D0C5-41B9-ADDB-86E7F482843D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D0B58E-D0C5-41B9-ADDB-86E7F482843D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D0B58E-D0C5-41B9-ADDB-86E7F482843D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
