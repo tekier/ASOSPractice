@@ -11,7 +11,7 @@ namespace CoffeeApiClient.ClientApi
       * (2) Ask for JSON as the return format
       * (3) Await a response from the the URI
       * (4) Check if response has been successful
-      * (5) Return content Task<string>
+      * (5) Return promise Task<string>
       * (6) In main program, ask for the Tasks result and do stuff with it
      */
     public class CoffeeClient
