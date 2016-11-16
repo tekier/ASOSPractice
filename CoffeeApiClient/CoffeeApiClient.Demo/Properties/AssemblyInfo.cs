@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CoffeeApiClient.ClientApiTest")]
+[assembly: AssemblyTitle("CoffeeApiClient.Demo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ASOS.com")]
-[assembly: AssemblyProduct("CoffeeApiClient.ClientApiTest")]
+[assembly: AssemblyProduct("CoffeeApiClient.Demo")]
 [assembly: AssemblyCopyright("Copyright © ASOS.com 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("667351d0-3483-479e-9081-8c878c6542f1")]
+[assembly: Guid("cdef73be-6f23-4fee-adf4-61a777ea470d")]
 
 // Version information for an assembly consists of the following four values:
 //

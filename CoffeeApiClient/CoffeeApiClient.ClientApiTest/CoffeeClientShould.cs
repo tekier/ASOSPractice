@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using CoffeeApiClient.ClientApi;
+﻿using CoffeeApiClient.ClientApi;
 using FluentAssertions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using NUnit.Framework;
 
 namespace CoffeeApiClient.ClientApiTest
@@ -27,15 +19,24 @@ namespace CoffeeApiClient.ClientApiTest
         [TestCase(3, "[{\"Id\":3,\"Strength\":2,\"Country\":\"Kenya\",\"IsDecaf\":true}]")]
         public void ReturnCorrectJsonStringWhenCoffeeObjectIsRequestedById(int id, string expectedResult)
         {
-            string actualResult = _testClient.GetCoffeeFromApiById(id).Result;
+            string actualResult = _testClient.GetCoffeeById(id).Result;
             actualResult.Should().Be(expectedResult);
         }
 
         [Test]
-        public void ReturnCorrectNothingWhenCoffeeObjectDoesntExist()
+        public void ReturnEmptyJsonObjectWhenCoffeeObjectDoesntExist()
         {
-            string actualResult = _testClient.GetCoffeeFromApiById(55).Result;
+            string actualResult = _testClient.GetCoffeeById(55).Result;
             string expectedResult = "[]";
+            actualResult.Should().Be(expectedResult);
+        }
+
+        [Test]
+        public void ReturnFullListOfCoffeesWhenGetAllCoffeesIsCalled()
+        {
+            string actualResult = _testClient.GetAllCoffees().Result;
+            string expectedResult =
+                "[{\"Id\":1,\"Strength\":4,\"Country\":\"Costa Rica\",\"IsDecaf\":false},{\"Id\":2,\"Strength\":3,\"Country\":\"India\",\"IsDecaf\":false},{\"Id\":3,\"Strength\":2,\"Country\":\"Kenya\",\"IsDecaf\":true},{\"Id\":4,\"Strength\":5,\"Country\":\"Indonesia\",\"IsDecaf\":false}]";
             actualResult.Should().Be(expectedResult);
         }
     }

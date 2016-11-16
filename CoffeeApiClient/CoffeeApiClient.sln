@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeApiClient.ClientApi",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeApiClient.ClientApiTest", "CoffeeApiClient.ClientApiTest\CoffeeApiClient.ClientApiTest.csproj", "{DDDD8BC7-1201-476A-8189-DD15EE409BD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeApiClient.Demo", "CoffeeApiClient.Demo\CoffeeApiClient.Demo.csproj", "{E3A0D3BA-2067-4F6B-AEDE-8D3260B2BFEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DDDD8BC7-1201-476A-8189-DD15EE409BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDDD8BC7-1201-476A-8189-DD15EE409BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDDD8BC7-1201-476A-8189-DD15EE409BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A0D3BA-2067-4F6B-AEDE-8D3260B2BFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A0D3BA-2067-4F6B-AEDE-8D3260B2BFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A0D3BA-2067-4F6B-AEDE-8D3260B2BFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A0D3BA-2067-4F6B-AEDE-8D3260B2BFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
