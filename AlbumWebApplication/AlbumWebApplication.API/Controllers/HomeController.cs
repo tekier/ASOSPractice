@@ -10,12 +10,12 @@ namespace AlbumWebApplication.API.Controllers
 {
     public class HomeController : ApiController
     {
-        private TempRepository _repository = new TempRepository();
+        private readonly TempRepository _repository = new TempRepository();
         public IHttpActionResult Get()
         {
             try
             {
-                return Ok();
+                return Ok(_repository.GetAlbumList());
             }
             catch
             {
