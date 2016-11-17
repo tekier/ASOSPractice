@@ -16,8 +16,15 @@ namespace CustomerOrdersUI
             );
 
             routes.MapRoute(
-                name : "Hello",
-                url: "{controller}/{action}/{name}/{age}"
+                "Hello",
+                "{controller}/{action}/{name}/{age}",
+                new { controller="HelloWorld", action="Welcome",name="",age=""}
+            );
+
+            routes.MapRoute(
+                "Customer",
+                "Customers/{action}/{custId}",
+                new {controller="Customers", action = "GetFullCustomerDetails", custId=""}
             );
         }
     }

@@ -62,9 +62,10 @@ namespace CoffeeApiClient.Demo
                 Console.WriteLine("This coffee is{0}decaf.\n", bool.Parse(resultAsJson["IsDecaf"].ToString()) ? " " : " not ");
                 Console.WriteLine("------------------------------");
             }
-            catch (Exception)
+            catch (Exception exception)
             {
                 Console.WriteLine("Failed to parse JSON");
+                Console.WriteLine(exception.Message);
                 Console.WriteLine("------------------------------");
             }
         }

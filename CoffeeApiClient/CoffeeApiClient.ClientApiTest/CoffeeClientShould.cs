@@ -16,7 +16,7 @@ namespace CoffeeApiClient.ClientApiTest
         }
 
         [TestCase(1, "[{\"Id\":1,\"Strength\":4,\"Country\":\"Costa Rica\",\"IsDecaf\":false}]")]
-        [TestCase(3, "[{\"Id\":3,\"Strength\":2,\"Country\":\"Kenya\",\"IsDecaf\":true}]")]
+        [TestCase(3, "[{\"Id\":3,\"Strength\":2,\"Country\":\"Java\",\"IsDecaf\":true}]")]
         public void ReturnCorrectJsonStringWhenCoffeeObjectIsRequestedById(int id, string expectedResult)
         {
             string actualResult = _testClient.GetCoffeeById(id).Result;
@@ -36,7 +36,7 @@ namespace CoffeeApiClient.ClientApiTest
         {
             string actualResult = _testClient.GetAllCoffees().Result;
             string expectedResult =
-                "[{\"Id\":1,\"Strength\":4,\"Country\":\"Costa Rica\",\"IsDecaf\":false},{\"Id\":2,\"Strength\":3,\"Country\":\"India\",\"IsDecaf\":false},{\"Id\":3,\"Strength\":2,\"Country\":\"Kenya\",\"IsDecaf\":true},{\"Id\":4,\"Strength\":5,\"Country\":\"Indonesia\",\"IsDecaf\":false}]";
+                "[{\"Id\":1,\"Strength\":4,\"Country\":\"Costa Rica\",\"IsDecaf\":false},{\"Id\":2,\"Strength\":3,\"Country\":\"India\",\"IsDecaf\":false},{\"Id\":3,\"Strength\":2,\"Country\":\"Java\",\"IsDecaf\":true},{\"Id\":4,\"Strength\":5,\"Country\":\"Indonesia\",\"IsDecaf\":false}]";
             actualResult.Should().Be(expectedResult);
         }
     }

@@ -13,8 +13,7 @@ namespace CustomerOrdersUI.Controllers
 
         public ActionResult Welcome(string name = "tawqir", int age = 21)
         {
-            //return HttpUtility.HtmlEncode("Welcome " + name + ". Your age is " + age +
-              //     "? This is being returned from the Welcome method");
+
             ViewBag.Message = "Hello to -> " + name;
             ViewBag.NumTimes = age;
 

@@ -1,0 +1,13 @@
+﻿@using BackendModel
+@model CustomerDetails
+
+@{
+    ViewBag.Title = "Customer ";
+    Customer obj = ViewBag.customer.CustomerObject;
+}
+<p>
+    <font size="20">
+        The customer's name is @obj.Name and their age is @ViewBag.Customer.GetCustomerAge() . The registered address is
+        @obj.CustomerAddress.House , @obj.CustomerAddress.Postcode .
+    </font>
+</p>

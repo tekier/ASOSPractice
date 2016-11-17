@@ -236,6 +236,9 @@
     <Content Include="Views\HelloWorld\Index.cshtml" />
     <Content Include="Views\HelloWorld\Welcome.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\GetCustomerDetails.cshtml" />
+    <Content Include="Views\Customers\EditCustomerDetails.cshtml" />
+    <Content Include="Views\Customers\CreateNewCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

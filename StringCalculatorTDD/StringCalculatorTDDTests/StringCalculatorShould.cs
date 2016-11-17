@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Globalization;
+using FluentAssertions;
 using NUnit.Framework;
 using StringCalculatorTDD;
 
@@ -18,8 +19,8 @@ namespace StringCalculatorTDDTests
         [Test]
         public void ReturnZero_GivenAnEmptyString()
         {
-            var result = calculator.Calculate("");
-
+            var result = calculator.Calculate(string.Empty);
+            
             result.Should().Be(0);
         }
 

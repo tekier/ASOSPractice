@@ -1,19 +1,16 @@
-﻿namespace StringCalculatorTDD
+﻿using System;
+using System.Linq;
+
+namespace StringCalculatorTDD
 
 {
     public class StringCalculator
     {
         public int Calculate(string input)
         {
-            /**if (input == "0,1")
-                return 1;
-            if (input == "1,1")
-                return 2;
-            if (input == "1,2")
-                return 3;**/
-
+        
             int sum = 0;
-            if (input != "")
+            if (input != string.Empty)
             {
                 foreach (string word in input.Split(','))
                 {

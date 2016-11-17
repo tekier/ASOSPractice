@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BackendModel.CustomerDetails>
+﻿@using System.Web.Mvc.Html
+@model IEnumerable<BackendModel.CustomerDetails>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,17 +9,19 @@
     ViewBag.Title = "Customers";
 }
 
-<h2>List of Customers with Orders</h2>
+<h1><u>List of Customers with Orders</u></h1>
 
 <ul>
     @foreach (var customer in ViewBag.Customers)
     {
-        <li>@customer.CustomerObject.Name</li>
+        <li><h2><b>@customer.CustomerObject.Name</b> (id:<b>@customer.CustomerObject.Id</b>)</h2></li>
         <ul>
             @foreach (var order in customer.CustomerObject.Orders)
             {
-                <li>@order.Item</li>
+                <li><h3><b>@order.Item</b> (id:<b>@order.OrderId</b>)</h3></li>
             }
         </ul>
     }
 </ul>
+
+<b>@Html.ActionLink("Add a new customer", "NewCustomer")</b>
