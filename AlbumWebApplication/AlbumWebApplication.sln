@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumWebApplication.View", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumWebApplication.Contracts", "AlbumWebApplication.Contracts\AlbumWebApplication.Contracts.csproj", "{2B6BB7A9-5EE4-4900-9705-84EF7AF7ECC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumWebApplication.Domain", "AlbumWebApplication.Domain\AlbumWebApplication.Domain.csproj", "{9676F7D9-A3A6-4826-A454-9C892904436E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumWebApplication.Domain", "AlbumWebApplication.Domain\AlbumWebApplication.Domain.csproj", "{A545178B-D4FD-40C5-A726-1FD68398B88B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{2B6BB7A9-5EE4-4900-9705-84EF7AF7ECC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B6BB7A9-5EE4-4900-9705-84EF7AF7ECC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B6BB7A9-5EE4-4900-9705-84EF7AF7ECC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9676F7D9-A3A6-4826-A454-9C892904436E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9676F7D9-A3A6-4826-A454-9C892904436E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9676F7D9-A3A6-4826-A454-9C892904436E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9676F7D9-A3A6-4826-A454-9C892904436E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A545178B-D4FD-40C5-A726-1FD68398B88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A545178B-D4FD-40C5-A726-1FD68398B88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A545178B-D4FD-40C5-A726-1FD68398B88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A545178B-D4FD-40C5-A726-1FD68398B88B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

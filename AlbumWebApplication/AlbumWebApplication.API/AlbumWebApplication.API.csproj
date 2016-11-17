@@ -127,10 +127,6 @@
       <Project>{2B6BB7A9-5EE4-4900-9705-84EF7AF7ECC5}</Project>
       <Name>AlbumWebApplication.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AlbumWebApplication.Domain\AlbumWebApplication.Domain.csproj">
-      <Project>{9676f7d9-a3a6-4826-a454-9c892904436e}</Project>
-      <Name>AlbumWebApplication.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
