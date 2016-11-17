@@ -20,8 +20,9 @@ namespace BowlingScoreCalculatorTest
         }
 
         [TestCase("--|--|--|--|--|--|--|--|--|--||", 0)]
-        [TestCase("11|--|--|--|--|--|--|--|--|--||", 2)]
-        [TestCase("11|--|--|--|--|--|33|--|--|--||", 8)]
+        [TestCase("11|--|--|--|--|--|--|--|--|--||", 1+1)]
+        [TestCase("11|--|--|--|--|--|33|--|--|--||", 1+1+3+3)]
+        [TestCase("11|2/|33|--|--|--|--|--|--|--||", 2+10+6+6)]
         public void ReturnZeroIfAllStrikesMissed(string input, int expectedResult)
         {
             int result = _calculator.CalculateScore(input);
