@@ -19,6 +19,12 @@ namespace AlbumWebApplication.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "TawqirsApi",
+                routeTemplate: "{controller}/{id}",
+                defaults: new { controller = "Home", id = RouteParameter.Optional }
+            );
         }
     }
 }
