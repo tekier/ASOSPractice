@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlbumWebApplication.Contracts
 {
-    class AlbumEntity : TableEntity
+    public class AlbumEntity : TableEntity
     {
         public AlbumEntity(string title, string artist)
         {
