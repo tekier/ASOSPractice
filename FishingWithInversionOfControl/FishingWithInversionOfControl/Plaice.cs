@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace FishingWithInversionOfControl
 {
-    public interface ICatch
+    public class Plaice : ICatch
     {
-        string WhatFishHasBeenCaught();
+        public string WhatFishHasBeenCaught()
+        {
+            return "Caught a plaice.";
+        }
     }
 }

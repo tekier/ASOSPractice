@@ -43,8 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fisherman.cs" />
+    <Compile Include="ICatch.cs" />
+    <Compile Include="Mackerel.cs" />
+    <Compile Include="Plaice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResolveFish.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
