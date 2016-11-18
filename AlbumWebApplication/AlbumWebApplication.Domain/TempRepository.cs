@@ -13,31 +13,29 @@ namespace AlbumWebApplication.Domain
 
         public TempRepository()
         {
-            _albumEntitiesAsRepository = new List<AlbumEntity>();
-            _albumEntitiesAsRepository.Add(new AlbumEntity("Salad Days", "Mac DeMarco")
+            _albumEntitiesAsRepository = new List<AlbumEntity>
             {
-                Id = "sd5",
-                Year = new DateTime(2013, 1, 1)
-
-            });
-            _albumEntitiesAsRepository.Add(new AlbumEntity("Eternal Champ", "Sweet Valley")
-            {
-                Id = "ec7",
-                Year = new DateTime(2011, 1, 1)
-
-            });
-            _albumEntitiesAsRepository.Add(new AlbumEntity("Cherry Bomb", "Tyler, The Creator")
-            {
-                Id = "cb6",
-                Year = new DateTime(2011, 1, 1)
-
-            });
-            _albumEntitiesAsRepository.Add(new AlbumEntity("Lucky Shiner", "Gold Panda")
-            {
-                Id = "ls5",
-                Year = new DateTime(2010, 1, 1)
-
-            });
+                new AlbumEntity("Salad Days", "Mac DeMarco")
+                {
+                    Id = "sd5",
+                    Year = new DateTime(2013, 1, 1)
+                },
+                new AlbumEntity("Eternal Champ", "Sweet Valley")
+                {
+                    Id = "ec7",
+                    Year = new DateTime(2011, 1, 1)
+                },
+                new AlbumEntity("Cherry Bomb", "Tyler, The Creator")
+                {
+                    Id = "cb6",
+                    Year = new DateTime(2011, 1, 1)
+                },
+                new AlbumEntity("Lucky Shiner", "Gold Panda")
+                {
+                    Id = "ls5",
+                    Year = new DateTime(2010, 1, 1)
+                }
+            };
 
         }
         public List<AlbumEntity> GetAlbumList()
