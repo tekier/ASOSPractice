@@ -10,8 +10,8 @@ namespace InitializationToAzure
     {
         static void Main(string[] args)
         {
-            UploadPictureBlobs i = new UploadPictureBlobs();
-            i.UploadBlobs();
+            //InitialiseTable a = new InitialiseTable();
+            //a.InsertIntoTable();
             Console.Read();
         }
     }

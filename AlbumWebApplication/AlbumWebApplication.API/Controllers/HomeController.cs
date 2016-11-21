@@ -15,7 +15,7 @@ namespace AlbumWebApplication.API.Controllers
             _repository = _resolver.ResolveRepository<IRepository>();
             try
             {
-                return Ok(_repository.GetAlbumData(1));
+                return Ok(_repository.GetAlbumData(""));
             }
             catch
             {

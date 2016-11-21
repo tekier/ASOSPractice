@@ -5,6 +5,6 @@ namespace AlbumWebApplication.Domain
 {
     public interface IRepository
     {
-        IEnumerable GetAlbumData(int id);
+        IEnumerable GetAlbumData(string id);
     }
 }

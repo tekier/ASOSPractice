@@ -39,7 +39,7 @@ namespace AlbumWebApplication.Domain
             };
 
         }
-        public IEnumerable GetAlbumData(int id)
+        public IEnumerable GetAlbumData(string id)
         {
             return _albumEntitiesAsRepository;
         }
