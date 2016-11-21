@@ -8,10 +8,10 @@ using AlbumWebApplication.Contracts;
 
 namespace AlbumWebApplication.Domain
 {
-    class TempImageRepository : IRepository
+    public class TempImageRepository : IRepository
     {
         private readonly List<ImageLocation> _imageLocations;
-        private const string RootPath = @"C:/albumimages/";
+        private const string RootPath = @"C:/album_images/";
         public TempImageRepository()
         {
             _imageLocations = new List<ImageLocation>()
