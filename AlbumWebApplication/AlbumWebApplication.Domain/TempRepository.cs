@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using AlbumWebApplication.Contracts;
 
 namespace AlbumWebApplication.Domain
 {
-    public class TempRepository
+    public class TempRepository : IRepository
     {
         private readonly List<AlbumEntity> _albumEntitiesAsRepository;
 
@@ -38,11 +39,9 @@ namespace AlbumWebApplication.Domain
             };
 
         }
-        public List<AlbumEntity> GetAlbumList()
+        public IEnumerable GetAlbumData(int id)
         {
             return _albumEntitiesAsRepository;
         }
-
-
     }
 }
