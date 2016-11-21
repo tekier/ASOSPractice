@@ -14,6 +14,9 @@ namespace AlbumWebApplication.Contracts
             this.PartitionKey = artist;
             this.RowKey = title;
         }
+
+        public AlbumEntity() {}
+
         public virtual string Id { get; set; }
         public virtual DateTime Year { get; set; }
 

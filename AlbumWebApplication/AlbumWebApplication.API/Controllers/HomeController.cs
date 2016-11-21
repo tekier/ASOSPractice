@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using AlbumWebApplication.Domain;
 using Newtonsoft.Json.Serialization;
 
@@ -11,11 +12,11 @@ namespace AlbumWebApplication.API.Controllers
 
         public IHttpActionResult Get()
         {
-            _resolver.Register<IRepository, TempRepository>();
+            _resolver.Register<IRepository, AlbumInformationRepository>();
             _repository = _resolver.ResolveRepository<IRepository>();
             try
             {
-                return Ok(_repository.GetAlbumData(""));
+                return Ok(_repository.GetAlbumData(string.Empty));
             }
             catch
             {
