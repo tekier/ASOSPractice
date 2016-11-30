@@ -15,7 +15,7 @@ namespace AlbumWebApplication.Contracts
             this.RowKey = title;
         }
 
-        public AlbumEntity() {}
+        public AlbumEntity() { }
 
         public virtual string Id { get; set; }
         public virtual DateTime Year { get; set; }

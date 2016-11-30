@@ -20,28 +20,35 @@ namespace RockPaperScissorsTest
             game = new RockPaperScissorsGame();
         }
 
-        [Test]
-        public void ReturnPaperCoversRockWhenUserInputsRAndP()
+        [TestCase("r","p")]
+        [TestCase("p","r")]
+        public void ReturnPaperCoversRockWhenUserInputsRAndP(string param1, string param2)
         {
-            string result = game.Play("r","p");
+            string result = game.Play(param1, param2);
             result.Should().Be("Paper Covers Rock");
 
         }
 
-        [Test]
-        public void ReturnRockSmashesScissorsWhenUserInputsRandS()
-        {
-            //string result = game.Play("r", "s");
-            string result = game.Play("s", "r");
+        [TestCase("r","s")]
+        [TestCase("s","r")]
+        public void ReturnRockSmashesScissorsWhenUserInputsRandS(string param1, string param2)
+        { 
+            string result = game.Play(param1, param2);
             result.Should().Be("Rock Smashes Scissors");
         }
 
-        [Test]
-        public void ReturnScissorsCutPaperWhenUserInputsSandP()
+        [TestCase("s", "p")]
+        [TestCase("p", "s")]
+        public void ReturnScissorsCutPaperWhenUserInputsSandP(string param1, string param2)
         {
-            string result = game.Play("s", "p");
+            string result = game.Play(param1, param2);
             result.Should().Be("Scissors Cut Paper");
         }
 
+        [TestCase("t", "asdfkjasdk")]
+        public void ReturnErrorMessageWhenInvalidInput(string param1, string param2)
+        {
+            string result = game.Play(param1, param2);
+        }
     }
 }

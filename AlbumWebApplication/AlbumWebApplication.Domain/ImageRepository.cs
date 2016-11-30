@@ -30,9 +30,16 @@ namespace AlbumWebApplication.Domain
         {
             var blockBlob = _container.GetBlockBlobReference($"{name}.png");
             var fileToWriteTo = $@"C:\dl-album-images\{name}.png";
-            using (var fileStream = File.OpenWrite(fileToWriteTo))
+            try
             {
-                blockBlob.DownloadToStream(fileStream);
+                using (var fileStream = File.OpenWrite(fileToWriteTo))
+                {
+                    blockBlob.DownloadToStream(fileStream);
+                }
+            }
+            catch (StorageException e)
+            {
+                return e.Message;
             }
             return fileToWriteTo;
         }
@@ -41,4 +48,5 @@ namespace AlbumWebApplication.Domain
             return DownloadRequestedImage(name);
         }
     }
+
 }

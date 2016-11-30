@@ -28,7 +28,7 @@ namespace InitializationToAzure
         {
             List<AlbumEntity> albumEntitiesAsRepository = new List<AlbumEntity>
             {
-                new AlbumEntity("Salad Days", "Mac DeMarco")
+                new AlbumEntity("Salad Days", "Mac DeMarco") 
                 {
                     Id = "saladdays",
                     Year = new DateTime(2013, 1, 1)
