@@ -1,6 +1,11 @@
 ﻿using System;
-using System.CodeDom;
-using System.Runtime.InteropServices;
+
+/*  
+             index:       1   2   3   4   5   6   7   8   9   10  11
+             frames:     [X   X   X   X   X   X   X   X   X   X   XX]
+             framescore: 30  30  30  30  30  30  30  30  30  30  n/a
+             cumlative:  30  60  90 120 150 180 210 240 270 300  n/a  
+             */
 
 namespace Bowling.API
 {
@@ -16,12 +21,13 @@ namespace Bowling.API
             string[] listOfScores = scoreString.Split(new[] {"|"}, StringSplitOptions.RemoveEmptyEntries);
             int total = 0;
 
-            GetTotalScoreForThisFrameConsideringSubsequentFrames(listOfScores, 0,  &total);
+            GetTotalScoreForThisFrameConsideringSubsequentFrames(listOfScores, 0, &total);
 
             return total;
         }
 
-        private unsafe int GetTotalScoreForThisFrameConsideringSubsequentFrames(string[] listOfScores, int currentIndex, int* total)
+        private unsafe void GetTotalScoreForThisFrameConsideringSubsequentFrames(string[] listOfScores, int currentIndex,
+            int* total)
         {
             if (currentIndex < listOfScores.Length)
             {
@@ -32,11 +38,11 @@ namespace Bowling.API
                 }
                 else
                 {
-                    *total += GetTotalScoreForThisFrame(listOfScores[currentIndex], currentIndex, listOfScores.Length);
+                    *total += GetTotalScoreForThisFrame(listOfScores[currentIndex], currentIndex, listOfScores.Length, 0);
                     GetTotalScoreForThisFrameConsideringSubsequentFrames(listOfScores, ++currentIndex, total);
                 }
             }
-            return *total;
+            return;
         }
 
         private int GetTotalScoreForFrameWhenFrameIsStrike(string[] listOfScores, int currentIndex)
@@ -44,37 +50,39 @@ namespace Bowling.API
             int scoreToReturn = 0;
             for (int i = 0; i < 3; i++)
             {
-                if(currentIndex < listOfScores.Length - i)
-                    scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + i], currentIndex, listOfScores.Length);
+                if (currentIndex < listOfScores.Length - i)
+                    scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + i], currentIndex,
+                        listOfScores.Length, 1);
             }
             return scoreToReturn;
         }
 
-        private int GetTotalScoreForThisFrame(string frameScore, int currentIndex, int length)
+        private int GetTotalScoreForThisFrame(string frameScore, int currentIndex, int length,
+            byte isPartOfPrecedingScore)
         {
-            if(frameScore.Equals("X"))
+            if (frameScore.Equals("X"))
                 return 10;
             if (frameScore.Length > 1)
             {
-                return GetTotalScoreForComplexFrames(frameScore);
+                return GetTotalScoreForComplexFrames(frameScore, isPartOfPrecedingScore);
             }
             return 0;
-            /*  
-             index:       1   2   3   4   5   6   7   8   9   10  11
-             frames:     [X   X   X   X   X   X   X   X   X   X   XX]
-             framescore: 30  30  30  30  30  30  30  30  30  30  n/a
-             cumlative:  30  60  90 120 150 180 210 240 270 300  n/a  
-             262*/
         }
 
-        private int GetTotalScoreForComplexFrames(string frameScore)
+        private int GetTotalScoreForComplexFrames(string frameScore, byte flag)
         {
             if (frameScore.Equals("XX"))
                 return 10;
-            if (char.IsDigit(frameScore[0]))
-                return frameScore[0] - '0';
+            if (flag == 0)
+            {
+                int score = 0;
+                if (char.IsDigit(frameScore[0]))
+                    score += frameScore[0] - '0';
+                if (char.IsDigit(frameScore[1]))
+                    score += frameScore[1] - '0';
+                return score;
+            }
             return 0;
-
         }
     }
 }
