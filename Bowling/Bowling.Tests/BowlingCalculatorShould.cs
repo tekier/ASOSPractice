@@ -32,6 +32,7 @@ namespace Bowling.Tests
         }
 
         [TestCase("X|X|X|X|X|X|X|X|X|X||XX", 300)]
+        //[TestCase("X|X|X|X|X|-4|X|X|X|X||XX", 248)]
         public void CalculateCorrectScoreForGivenInputString(string inputString, int expectedResult)
         {
             var resultFromCalculator = _calculator.CalculateScore(inputString);
