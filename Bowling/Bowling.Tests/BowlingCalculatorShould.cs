@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bowling.API;
+﻿using Bowling.API;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -20,11 +15,27 @@ namespace Bowling.Tests
             _calculator = new ScoreCalculator();
         }
 
-        [Test]
-        public void CheckIfScoreStringIsValid()
+        [TestCase("X|X|X|X|X|X|X|X|X|X||XX")]
+        [TestCase("9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||")]
+        [TestCase("X|7/|9-|X|-8|8/|-6|X|X|X||81")]
+        public void VerifyScoreStringHasValidNumberOfFrames(string inputString)
         {
-            var result = _calculator.VerifyString("X|X|X|X|X|X|X|X|X|X||XX");
+            var result = _calculator.VerifyCorrectNumberOfFrames(inputString);
             result.Should().BeTrue();
+        }
+
+        [Test]
+        public void VerifyInvalidScoreStringHasInvalidNumberOfFrames()
+        {
+            var result = _calculator.VerifyCorrectNumberOfFrames("X|X|X|X|X|X|X|X|X||XX");
+            result.Should().BeFalse();
+        }
+
+        [TestCase("X|X|X|X|X|X|X|X|X|X||XX", 300)]
+        public void CalculateCorrectScoreForGivenInputString(string inputString, int expectedResult)
+        {
+            var resultFromCalculator = _calculator.CalculateScore(inputString);
+            resultFromCalculator.Should().Be(expectedResult);
         }
     }
 }
