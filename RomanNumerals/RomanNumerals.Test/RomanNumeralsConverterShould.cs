@@ -30,14 +30,14 @@ namespace RomanNumerals.Test
         [Test]
         public void ThrowExceptionWithNumbersLessThanOne()
         {
-            Action tryYourLuck = () => _converter.GetRomanNumeralRepresentationOf(-1);
-            tryYourLuck.ShouldThrow<Exception>().WithMessage("Numbers less than 1 not supported.");
+            Action invalidAction = () => _converter.GetRomanNumeralRepresentationOf(-1);
+            invalidAction.ShouldThrow<Exception>().WithMessage("Numbers less than 1 not supported.");
         }
         [Test]
         public void ThrowExceptionWithNumbersLargerThanTenThousand()
         {
-            Action tryYourLuck = () => _converter.GetRomanNumeralRepresentationOf(10001);
-            tryYourLuck.ShouldThrow<Exception>().WithMessage("Number too big.");
+            Action invalidAction = () => _converter.GetRomanNumeralRepresentationOf(10001);
+            invalidAction.ShouldThrow<Exception>().WithMessage("Number too big.");
         }
     }
 }
