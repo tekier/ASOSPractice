@@ -10,10 +10,10 @@ namespace Contracts
 {
     public sealed class Character : TableEntity
     {
-        public Character(string name, string gender, int age, string specialItem)
+        public Character(string  forename, string surname, int age, string specialItem)
         {
-            PartitionKey = name;
-            RowKey = gender;
+            PartitionKey = forename;
+            RowKey = surname;
             Age = age;
             SpecialItem = specialItem;
         }

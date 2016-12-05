@@ -13,16 +13,13 @@ namespace InitializeToAzureTable
 {
     public class TableInitializer
     {
-        private CloudStorageAccount _cloudAccount;
-        private CloudTableClient _cloudTableClient;
-        private CloudTable _table;
+        private readonly CloudTable _table;
 
         public TableInitializer()
         {
-            _cloudAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
-            _cloudTableClient = _cloudAccount.CreateCloudTableClient();
-            _table = _cloudTableClient.GetTableReference("simpsons");
-            Thread.Sleep(5000);
+            var cloudAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+            var cloudTableClient = cloudAccount.CreateCloudTableClient();
+            _table = cloudTableClient.GetTableReference("simpsons");
             _table.CreateIfNotExists();
         }
 
