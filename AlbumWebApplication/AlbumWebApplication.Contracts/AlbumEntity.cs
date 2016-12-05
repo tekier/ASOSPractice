@@ -15,6 +15,7 @@ namespace AlbumWebApplication.Contracts
             this.RowKey = title;
         }
 
+        //Question
         public AlbumEntity() { }
 
         public virtual string Id { get; set; }

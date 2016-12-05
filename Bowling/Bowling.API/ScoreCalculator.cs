@@ -52,11 +52,12 @@ namespace Bowling.API
                 {
                     if (!listOfScores[currentIndex + i].Equals("X"))
                     {
-                        scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + i],i);
+                        scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + i],i-1);
+                        scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + 1 + i], i);
                     }
                     else
                     {
-                        scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + i], i - 1);
+                        scoreToReturn += GetTotalScoreForThisFrame(listOfScores[currentIndex + i], i);
                     }        
                     //0, 1, 2
                 }
