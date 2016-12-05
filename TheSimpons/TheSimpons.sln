@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheSimpons", "TheSimpons\TheSimpons.csproj", "{475284AF-A82D-4784-B8D6-6A37322F5C57}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceAPI", "ServiceAPI", "{0AEB7CB4-DF43-437B-8878-E27EC97513C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{F31C6A5E-2DF3-49AC-86E4-ADE599250AC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +13,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{475284AF-A82D-4784-B8D6-6A37322F5C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{475284AF-A82D-4784-B8D6-6A37322F5C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{475284AF-A82D-4784-B8D6-6A37322F5C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{475284AF-A82D-4784-B8D6-6A37322F5C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F31C6A5E-2DF3-49AC-86E4-ADE599250AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31C6A5E-2DF3-49AC-86E4-ADE599250AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31C6A5E-2DF3-49AC-86E4-ADE599250AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31C6A5E-2DF3-49AC-86E4-ADE599250AC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F31C6A5E-2DF3-49AC-86E4-ADE599250AC8} = {0AEB7CB4-DF43-437B-8878-E27EC97513C6}
 	EndGlobalSection
 EndGlobal
