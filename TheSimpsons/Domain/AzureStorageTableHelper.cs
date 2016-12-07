@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Contracts;
 using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
@@ -19,7 +15,7 @@ namespace Domain
 
         public AzureStorageTableHelper()
         {
-            _storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+            _storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=tekier;AccountKey=hxHcT89mFxOmO2XEYOsLYEhwm/gTQL8MbhiRnvKg8gIzY2bgVMCj3WvhtxWPj/uNWagoYVktG4lHWiW4Qs2EXg==");
             _tableClient = _storageAccount.CreateCloudTableClient();
             _table = _tableClient.GetTableReference("simpsons");
 
