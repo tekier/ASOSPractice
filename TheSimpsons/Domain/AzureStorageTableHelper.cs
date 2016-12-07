@@ -34,9 +34,9 @@ namespace Domain
         public List<Character> GetCharacterWithFirstName(string partitionKey)
         {
             var queryToExecute =
-                new TableQuery<Character>().Where(TableQuery.GenerateFilterCondition("PartitionKey",
+                new TableQuery<Character>().Where(TableQuery.GenerateFilterCondition("RowKey",
                     QueryComparisons.Equal, partitionKey));
-            return queryToExecute.ToList();
+            return _table.ExecuteQuery(queryToExecute).ToList();
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Contracts
     {
         public Character(string  forename, string surname, int age, string specialItem)
         {
-            PartitionKey = forename;
-            RowKey = surname;
+            PartitionKey = surname;
+            RowKey = forename;
             Age = age;
             SpecialItem = specialItem;
         }
