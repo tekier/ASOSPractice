@@ -13,11 +13,17 @@ namespace API.Controllers
         private RedisCacheHelper _redis;
         private AzureStorageTableHelper _azure;
 
+        public IHttpActionResult Clear()
+        {
+            _redis = new RedisCacheHelper();
+            _redis.ClearTheWholeThing();
+            return Ok();
+        }
         public IHttpActionResult Get()
         {
           _redis = new RedisCacheHelper();
-            //try
-            //{
+            try
+            {
                 if (_redis.CheckIfInCache("full list"))
                 {
                     return Ok(_redis.RetrieveFromCache("full list"));
@@ -26,12 +32,12 @@ namespace API.Controllers
                 var valueToReturn = _azure.GetAllCharacters();
                 _redis.AddToCache(valueToReturn);
                 return Ok(valueToReturn);
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
                 
                 return NotFound();
-            //}
+            }
         }
 
         public IHttpActionResult Get(string name)

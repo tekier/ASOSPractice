@@ -32,5 +32,10 @@ namespace Domain
         {
             return _redisCache.KeyExists(key);
         }
+
+        public void ClearTheWholeThing()
+        {
+            _redisCache.KeyDelete("*");
+        }
     }
 }
