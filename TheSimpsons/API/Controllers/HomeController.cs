@@ -13,12 +13,6 @@ namespace API.Controllers
         private RedisCacheHelper _redis;
         private AzureStorageTableHelper _azure;
 
-        public IHttpActionResult Clear()
-        {
-            _redis = new RedisCacheHelper();
-            _redis.ClearTheWholeThing();
-            return Ok();
-        }
         public IHttpActionResult Get()
         {
           _redis = new RedisCacheHelper();
