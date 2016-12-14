@@ -18,14 +18,14 @@ namespace TicTacToe.Tests
         [Test]
         public void BeEmptyOnInitialisation()
         {
-            Moves[,] expectedArray =
+            var expectedArray = new[]
             {
-                {Moves.Blank, Moves.Blank, Moves.Blank},
-                {Moves.Blank, Moves.Blank, Moves.Blank},
-                {Moves.Blank, Moves.Blank, Moves.Blank}
+                new[] {Moves.Blank, Moves.Blank, Moves.Blank},
+                new[] {Moves.Blank, Moves.Blank, Moves.Blank},
+                new[] {Moves.Blank, Moves.Blank, Moves.Blank}
             };
             var actualArray = _game.GetGameState();
-            actualArray.Should().Equal(expectedArray);
+            Assert.AreEqual(expectedArray, actualArray);
         }
 
         [TestCase("x")]
@@ -37,6 +37,19 @@ namespace TicTacToe.Tests
         {
             bool actualReturnedFlag = _game.ValidateUserInput(simulatedUserInput);
             actualReturnedFlag.Should().BeTrue();
+        }
+
+        [TestCase("U")]
+        public void ReturnFalseForInvalidUserInput(string simulatedUserInput)
+        {
+            bool actualReturnedFlag = _game.ValidateUserInput(simulatedUserInput);
+            actualReturnedFlag.Should().BeFalse();
+        }
+
+        [Test]
+        public void AddMoveCorrectly()
+        {
+            Assert.AreEqual(true, true);
         }
     }
 }
