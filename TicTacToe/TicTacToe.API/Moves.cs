@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToe.API
 {
-    class Program
+    public enum Moves
     {
-        static void Main(string[] args)
-        {
-        }
+        X, O, Blank
     }
 }
