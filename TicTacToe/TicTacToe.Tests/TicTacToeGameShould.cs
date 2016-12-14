@@ -30,9 +30,13 @@ namespace TicTacToe.Tests
 
         [TestCase("x")]
         [TestCase("o")]
+        [TestCase("X")]
+        [TestCase("O")]
+        [TestCase("0")]
         public void ValidateUserInputToBeXorO(string simulatedUserInput)
         {
             bool actualReturnedFlag = _game.ValidateUserInput(simulatedUserInput);
+            actualReturnedFlag.Should().BeTrue();
         }
     }
 }

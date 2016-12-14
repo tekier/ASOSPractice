@@ -1,4 +1,8 @@
-﻿namespace TicTacToe.API
+﻿using System;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+
+namespace TicTacToe.API
 {
     public class TicTacToeGame
     {
@@ -21,7 +25,7 @@
 
         public bool ValidateUserInput(string userInput)
         {
-            if (userInput.ToLower().Equals(new[] {"x","o","0"}))
+            if (new[] {"x", "o", "0"}.Contains(userInput, StringComparer.OrdinalIgnoreCase))
                 return true;
             return false;
         }
