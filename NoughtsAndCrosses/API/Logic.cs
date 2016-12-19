@@ -10,11 +10,14 @@
             _gameGrid = new Grid();
         }
 
-        public void AddVa
-
-        public bool HasWon()
+        public Moves[] GetGrid()
         {
-            _calculator = new WinningGridCalculator();
-            return _calculator.HorizontalWin(_gameGrid.GetGrid());
+            return _gameGrid.GetGrid();
+        }
+
+        public void AddToGrid(Moves move, int position)
+        {
+            _gameGrid.AddValueToGrid(move, position);
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace API
+﻿namespace API
 {
     public class Game
     {
@@ -11,39 +9,19 @@ namespace API
             _game = new Logic();
             _numberOfTurns = 0;
         }
-        #region Conditions to check game as ended.
-
         public bool IsDrawn()
         {
             return _numberOfTurns == 9;
         }
 
-        #endregion
-        public void Introduction()
+        public Moves[] GetGameGrid()
         {
-            Console.WriteLine("Welcome to the game!!");
-            Console.WriteLine();
-        }
-        public void ExitMessage()
-        {
-            Console.WriteLine();
-            Console.WriteLine("See you next time!");
-            Console.Read();
-        }
-        public void UpdateGrid()
-        {
-            
-        }
-        private void FriendlyTurnMessage()
-        {
-            Console.WriteLine("Enter input as [row]\t[column\t[X|O]");
+            return _game.GetGrid();
         }
 
-        public string Turn()
+        public void Add(Moves move, int position)
         {
-            FriendlyTurnMessage();
-            string userInput = Console.ReadLine();
-            return userInput;
-        }    
+            _game.AddToGrid(move, position);
+        }
     }
 }
