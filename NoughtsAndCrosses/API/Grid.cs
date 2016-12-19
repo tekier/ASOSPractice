@@ -1,7 +1,4 @@
-﻿using System.Net.Configuration;
-using System.Runtime.Remoting.Messaging;
-
-namespace API
+﻿namespace API
 {
     public class Grid
     {
@@ -9,13 +6,18 @@ namespace API
 
         internal Grid()
         {
-            _gameGrid = new[] {Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank};
+            _gameGrid = new[]
+            {
+                Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
+                Moves.Blank
+            };
         }
 
         public int GetLength()
         {
             return _gameGrid.Length;
         }
+
         public Moves[] GetGrid()
         {
             return _gameGrid;

@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-// ReSharper disable SuspiciousTypeConversion.Global
+﻿// ReSharper disable SuspiciousTypeConversion.Global
+
+using System;
 
 namespace API
 {
-    internal class TurnValidator
+    public class TurnValidator
     {
         public bool IsValid(string userInput)
         {
             string santizedString = RemoveWhiteSpaces(userInput);
-            return CorrectLength(santizedString) && FirstTwoCharactersAreIntsInRange(santizedString) && ThirdCharacterIsValidMove(santizedString);
+            return CorrectLength(santizedString) && FirstTwoCharactersAreIntsInRange(santizedString) && InputCoordinatesAreInRange(userInput) && ThirdCharacterIsValidMove(santizedString);
+        }
+
+        private bool InputCoordinatesAreInRange(string userInput)
+        {
+            int firstCoordinate = int.Parse(userInput[0].ToString());
+            int secondCoordinate = int.Parse(userInput[1].ToString());
+            return (firstCoordinate < 3) && (secondCoordinate < 3);
         }
 
         private bool ThirdCharacterIsValidMove(string userInput)

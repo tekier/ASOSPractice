@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
 
 namespace API
 {
@@ -12,14 +6,11 @@ namespace API
     {
         private Logic _game;
         private int _numberOfTurns;
-
-
         public Game()
         {
             _game = new Logic();
             _numberOfTurns = 0;
         }
-
         #region Conditions to check game as ended.
 
         public bool IsDrawn()
@@ -27,13 +18,7 @@ namespace API
             return _numberOfTurns == 9;
         }
 
-        public bool IsWon()
-        {
-            return _game.HasWon();
-        }
-
         #endregion
-
         public void Introduction()
         {
             Console.WriteLine("Welcome to the game!!");
@@ -41,22 +26,24 @@ namespace API
         }
         public void ExitMessage()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
+            Console.WriteLine("See you next time!");
+            Console.Read();
         }
-
         public void UpdateGrid()
         {
             
         }
-
-        public void Turn()
+        private void FriendlyTurnMessage()
         {
-            Console.WriteLine("Enter input as /row /coloumn /X/O");
-            string userInput = Console.ReadLine();
-            if()
+            Console.WriteLine("Enter input as [row]\t[column\t[X|O]");
         }
 
-
-        
+        public string Turn()
+        {
+            FriendlyTurnMessage();
+            string userInput = Console.ReadLine();
+            return userInput;
+        }    
     }
 }

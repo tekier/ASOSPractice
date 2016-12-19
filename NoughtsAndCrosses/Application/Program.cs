@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using API;
+﻿using API;
 
 namespace Application
 {
@@ -13,10 +7,13 @@ namespace Application
         static void Main()
         {
             Game game = new Game();
+            TurnValidator turnValidator = new TurnValidator();
+            WinningGridCalculator winChecker = new WinningGridCalculator();
 
+            //done
             game.Introduction();
-
-            while (!game.IsWon() || !game.IsDrawn())
+            string userInput = game.Turn();
+            while (!(winChecker. || game.IsDrawn()))
                 game.Turn();
 
             game.ExitMessage();
