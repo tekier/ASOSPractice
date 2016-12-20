@@ -21,6 +21,7 @@
 
         public void Add(Moves move, int position)
         {
+            _numberOfTurns++;
             _game.AddToGrid(move, position);
         }
     }

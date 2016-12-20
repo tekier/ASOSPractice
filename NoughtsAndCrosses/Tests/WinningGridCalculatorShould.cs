@@ -20,14 +20,26 @@ namespace Tests
             _testCalculator = new WinningGridCalculator();
         }
 
-        [TestCase(new[] {Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank}, false)]
-        [TestCase(new[] {Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.O, Moves.Blank, Moves.O, Moves.Blank, Moves.Blank }, true)]
-        [TestCase(new[] {Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.O, Moves.O, Moves.O }, true)]
-        [TestCase(new[] {Moves.Blank, Moves.Blank, Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank}, false)]
-        public void CorrectlyDetectHorizantalWin(Moves[] fakeGameState, bool expectedBool)
+        [Test]
+        public void CorrectlyDetectHorizantalWinForCaseOne()
         {
-            bool actualBool = _testCalculator.Win(fakeGameState);
-            actualBool.Should().Be(expectedBool);
+            Moves[] fakeGameState = {
+                Moves.Blank, Moves.Blank, Moves.Blank, Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.Blank, Moves.Blank
+            };
+            bool actualBool = _testCalculator.HorizontalWin(fakeGameState);
+            actualBool.Should().BeTrue();
         }
+
+        [Test]
+        public void CorrectlyNotDetectHorizantalWinForCaseTwo()
+        {
+            Moves[] fakeGameState = {
+                Moves.Blank, Moves.Blank, Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank
+            };
+            bool actualBool = _testCalculator.HorizontalWin(fakeGameState);
+            actualBool.Should().BeFalse();
+        }
+
+
     }
 }

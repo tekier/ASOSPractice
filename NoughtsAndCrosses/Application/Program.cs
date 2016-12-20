@@ -10,28 +10,22 @@ namespace Application
             Game game = new Game();
             TurnValidator turnValidator = new TurnValidator();
             WinningGridCalculator winChecker = new WinningGridCalculator();
-
-            PrintIntroduction();
+            TurnParser parser = new TurnParser();
             PrettyPrintGrid(game.GetGameGrid());
-            PrintFriendlyTurnMessage();
-            string userInput = GetUserInput(turnValidator);
-            bool isDrawn = false, win = false;
-
-            while (!isDrawn || !win)
+            while (!winChecker.Win(game.GetGameGrid()) || !game.IsDrawn())
             {
-                var parser = new TurnParser();
-                int position = parser.GetPositionOnGrid(userInput);
-                Moves move = parser.GetMove(userInput);
-
-                game.Add(move, position);
-                userInput = GetUserInput(turnValidator);
-                isDrawn = game.IsDrawn();
-                win = winChecker.Win(game.GetGameGrid());
-
-                PrettyPrintGrid(game.GetGameGrid());
+                string userinput = Console.ReadLine();
+                if (turnValidator.IsValid(userinput))
+                {
+                    game.Add(parser.GetMove(userinput), parser.GetPositionOnGrid(userinput));
+                    PrettyPrintGrid(game.GetGameGrid());
+                }
+                else
+                {
+                    Console.WriteLine("error input - try again");
+                }
             }
-
-            PrintExitMessage();
+            Console.WriteLine("finished");
         }
 
         private static void PrettyPrintGrid(Moves[] gameGrid)
