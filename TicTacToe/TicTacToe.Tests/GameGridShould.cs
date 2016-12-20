@@ -28,7 +28,7 @@ namespace TicTacToe.Tests
                 new[] {Moves.Blank, Moves.Blank, Moves.Blank},
                 new[] {Moves.Blank, Moves.Blank, Moves.Blank}
             };
-            _testGrid.CheckEquality(expectedArray).Should().BeTrue();
+            _testGrid.Equals(expectedArray).Should().BeTrue();
         }
     }
 }
