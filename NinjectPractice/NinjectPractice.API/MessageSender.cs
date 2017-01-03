@@ -10,10 +10,10 @@ namespace NinjectPractice.API
 {
     public class MessageSender
     {
-        public void SendMessage(string content, string recipient)
+        public void SendMessage(ISender clientType, string content, string recipient)
         {
             var newMessage = new Message(content, recipient);
-            ISender client = new Email();
+            ISender client = clientType;
             client.Send(newMessage);
         }
     }
