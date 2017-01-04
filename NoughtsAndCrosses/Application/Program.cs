@@ -5,6 +5,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using API;
+using Contracts;
+using Microsoft.Build.Tasks;
 
 namespace Application
 {
@@ -15,19 +17,31 @@ namespace Application
             WelcomeMessage();
             Game.DrawGrid();
 
+            while (!Game.HasBeenWon())
+            {
+                string input = Console.ReadLine();
+                while (!Game.IsValid(input))
+                {
+                    ErrorMessage();
+                    input = Console.ReadLine();
+                }
 
+                Moves currentMove = Game.Parse(input);
+                int currentRow = Game.GetRow(input);
+                int currentCol = Game.GetColumn(input);
+                int currentPosition = Game.CalculatePosition(currentRow, currentCol);
+            }
             Console.Read();
+        }
+
+        private static void ErrorMessage()
+        {
+            Console.WriteLine("Please re-enter valid input in form #[X | O], [row & column]#\n");
         }
 
         public static void WelcomeMessage()
         {
-            Console.WriteLine("Welcome to the game");
-            MakeSpace();
-        }
-
-        private static void MakeSpace()
-        {
-            Console.WriteLine();
+            Console.WriteLine("Welcome to the game\n");
         }
     }
 }

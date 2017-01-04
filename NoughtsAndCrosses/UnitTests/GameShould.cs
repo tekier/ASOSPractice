@@ -31,7 +31,7 @@ namespace UnitTests
         [TestCase(2, 2, 8)]
         public void PositionCalculatorShould(int x, int y, int expectedPosition)
         {
-            int actualCalculatedPosition = _testGame.CalculatePosition(x, y);
+            int actualCalculatedPosition = Game.CalculatePosition(x, y);
             actualCalculatedPosition.Should().Be(expectedPosition);
         }
     }
